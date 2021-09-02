@@ -1,4 +1,4 @@
-import CarritoWidget from "./CarritoWidget";
+import CarritoWidget from "../CarritoWidget/CarritoWidget";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
