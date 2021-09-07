@@ -1,0 +1,33 @@
+.cardStyle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    border-radius: 10px;
+    background-color: #0898951f;
+    height: 54vh;
+    padding: 1vw 1vh;
+    border: 2px solid #000000;
+    margin: 2vh auto;
+}
+.cardImage{
+    width: 14vw;
+    margin-top: 2vh;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+.cardCounter{
+    width: 3vw;
+    margin: 1vh 1vw;
+    text-align: center;
+}
+
+.buttonStyle{
+    border-radius:10px;
+    color:white;
+    font-weight:bold;
+    background-color: #0d6efdc2;
+    text-align:center;
+    padding: 1vh 1vw;
+}

@@ -11,7 +11,7 @@ const NavBar= () =>{
     return (
         <>
         <div style={{width:"100%", display:"flex", flexDirection:"row", flexWrap:"nowrap" }}>
-        <img style={{width: 150, height: 150, marginTop:"1vh", marginLeft:"1vw"}} src="https://i.ibb.co/sKqRN9Y/laschuecas.jpg" />
+        <img style={{width: 150, height: 150, marginTop:"1vh", marginLeft:"1vw"}} src="https://i.ibb.co/sKqRN9Y/laschuecas.jpg" alt="Logo las chuecas"/>
             <Navbar expand="lg" style={{width:"100%", backgroundColor:"white"}}>
                 <Navbar.Toggle  aria-controls="navbarScroll" />
                 <Navbar.Collapse  id="navbarScroll">
