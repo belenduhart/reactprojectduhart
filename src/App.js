@@ -2,9 +2,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar/NavBar';
 import Header from './components/Header/Header';
-import AddCount from './components/AddProductCard/AddProductCard';
-
-
+import AddProductCard from './components/AddProductCard/AddProductCard';
+import CardDetails from './components/CardDetails/CardDetails';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
@@ -15,7 +14,10 @@ function App() {
     </div>
     <Header/>
     <ItemListContainer saludo="Hola! ¡Bienvenid@s a la página de Las Chuecas!"/>
-    <AddCount/>
+    <div className="cards">
+    <CardDetails />
+    </div>
+    <AddProductCard/>
     </>
   );
 }

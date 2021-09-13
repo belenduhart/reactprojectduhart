@@ -6,7 +6,7 @@
     width: 20vw;
     border-radius: 10px;
     background-color: #0898951f;
-    height: 54vh;
+    height: 54%;
     padding: 1vw 1vh;
     border: 2px solid #000000;
     margin: 2vh auto;
@@ -23,14 +23,7 @@
     text-align: center;
 }
 
-.buttonStyle{
-    border-radius:10px;
-    color:white;
-    font-weight:bold;
-    background-color: #0d6efdc2;
-    text-align:center;
-    padding: 1vh 1vw;
-}
+
 
 .tituloProducto{
     margin-top:2vh;

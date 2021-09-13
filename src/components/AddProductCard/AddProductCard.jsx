@@ -2,7 +2,7 @@
   import {useState} from 'react';
   import './AddProductCard.css';
 
-const AddCount = () => {
+const AddProductCard = () => {
     let stock = 10;
     const [count, setCount] = useState(0)
     function AddOneProduct (){
@@ -11,7 +11,7 @@ const AddCount = () => {
     }else {
       alert ("Lo siento, ¡No contamos con más stock!")
     }
-      console.log(count)
+      
     }
     function RestOneProduct (){
       if (count === 0){
@@ -19,7 +19,7 @@ const AddCount = () => {
       }else {
         setCount(count - 1)
       }
-      console.log(count)
+     
     }
   function AgregarAlCarrito() {
     stock = (stock - count)
@@ -30,10 +30,10 @@ const AddCount = () => {
     return (
       <div className="cardStyle">
         <img className="cardImage" src="https://i.ibb.co/hW7nsHs/3b.jpg" alt="Remera rosa gato malo" />
-        <p style={{marginTop:"2vh", fontWeight:"bold"}}>Remera Gato Malo</p>
+        <p className="tituloProducto">Remera Gato Malo</p>
         <div>
         <button  className="buttonStyle" style= {{width:"3vw"}} onClick={AddOneProduct}>+</button>
-        <input className="cardCounter" type="number" name="" id="" value= {count} />
+        <input className="cardCounter" type="number" name="" value= {count} />
         <button className="buttonStyle" style= {{width:"3vw"}} onClick={RestOneProduct}>-</button>
         </div>
         <button className="buttonStyle" style= {{width:"13vw", margin:"1vh 1vw"}} onClick = {AgregarAlCarrito} >¡Agregar al Carrito!</button>
@@ -42,4 +42,4 @@ const AddCount = () => {
   }
 
 
-export default AddCount;
+export default AddProductCard;

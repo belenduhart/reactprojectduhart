@@ -1,0 +1,22 @@
+.NavBarContainer{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+}
+
+.NavBarLogo{
+    width: 150px;
+    height: 150px;
+    margin-top:1vh;
+    margin-left:1vw;
+}
+
+.NavBarra{
+    width: 100%;
+    background-color: white;
+}
+
+.NavBarContent{
+    margin-left: 2vw;
+}
