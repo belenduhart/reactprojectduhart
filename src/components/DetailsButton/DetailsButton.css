@@ -2,3 +2,7 @@
     text-align: center;
     margin-bottom:0;
 }
+
+#buyButton{
+    margin: 1vh 50vw;
+}
