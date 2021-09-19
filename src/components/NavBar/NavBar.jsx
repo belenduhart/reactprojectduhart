@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import CarritoWidget from "../CarritoWidget/CarritoWidget";
+import CarritoWidget from "../Cart/CarritoWidget/CarritoWidget";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -26,7 +26,7 @@ const NavBar= () =>{
                 <Nav.Link className="NavBarContent"
                 href="#action1">Home</Nav.Link>
                 </Link>
-                <Link exact to="/howtobuy">
+                <Link exact to="/comocomprar">
                 <Nav.Link href="#action2">¿Cómo comprar?</Nav.Link>
                 </Link>
                 <NavDropdown title="Productos" id="navbarScrollingDropdown">

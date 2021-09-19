@@ -1,5 +1,5 @@
+// Imagen del home de landingpage
 import './Header.css';
-
 
 const Header= ()=>{
     return (

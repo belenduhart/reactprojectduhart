@@ -1,5 +1,4 @@
 
-
 const ObtenerTarjetas = new Promise ((res,rej)=>{
     let respuesta = "obtener";
     if (respuesta === "obtener"){
@@ -10,7 +9,6 @@ const ObtenerTarjetas = new Promise ((res,rej)=>{
         rej("No se encuentran los productos")
     }
 })
-
 
 //Array Productos
 const ProductsArray = [

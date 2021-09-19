@@ -1,3 +1,4 @@
+// Icono del carrito me lleva al carrito "CART"
 import './CarritoWidget.css';
 import { Link } from 'react-router-dom';
 

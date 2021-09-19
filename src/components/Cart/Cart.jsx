@@ -1,3 +1,4 @@
+// Carrito de compras
 import "./Cart.css"
 
 const Cart = () => {
