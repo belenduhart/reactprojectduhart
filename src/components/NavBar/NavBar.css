@@ -20,3 +20,17 @@
 .NavBarContent{
     margin-left: 2vw;
 }
+
+
+@media only screen and (max-width: 480px){
+    .NavBarLogo{
+        width: 15vw;
+        height: 10vh;
+        -top: 1vh;
+        margin-right: 25vw;
+        margin-left: 5vw;
+    }
+    #navbarScrollingDropdown{
+        z-index: 42432434 !important;
+    }
+    }

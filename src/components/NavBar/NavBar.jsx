@@ -52,8 +52,8 @@ const NavBar= () =>{
                 </NavDropdown>
                 </Nav>
             {/* Icono del carrito */}
-            <CarritoWidget />
             </Navbar.Collapse>
+            <CarritoWidget />
             </Navbar>
             </div>
         </>
