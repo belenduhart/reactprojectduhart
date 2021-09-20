@@ -11,7 +11,7 @@ const AddToCartButton = ()=>{
     }
     const SuccessButton = ()=>{
         return (
-            <button className="btn btn-success" style= {{width:"13vw", margin:"1vh 1vw"}} onClick = {Intercambiar} >¡Producto Agregado!<br/>  Ir al carrito</button>
+            <button className="btn btn-success" style= {{width:"13vw", margin:"1vh 1vw"}} >¡Producto Agregado!<br/>  Ir al carrito</button>
         )
     }
 
