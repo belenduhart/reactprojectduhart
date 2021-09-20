@@ -1,5 +1,6 @@
 import "./Counter.css"
 import { useState } from "react";
+import AddToCartButton from "../AddToCartButton/AddToCartButton";
 
 const Counter = ({producto})=>{
     let stock = (producto.stock);
@@ -36,7 +37,7 @@ return (
             <input className="cardCounter" type="number" name="" value= {count} />
             <button className="buttonStyle" style= {{width:"3vw"}} onClick={RestOneProduct}>-</button>
         </div>
-        <button className="buttonStyle" style= {{width:"13vw", margin:"1vh 1vw"}} onClick = {AgregarAlCarrito} >¡Agregar al Carrito!</button>
+        <AddToCartButton/>
     </div>
     </>
 )
