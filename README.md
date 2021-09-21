@@ -17,7 +17,7 @@ Desarrollo de una nueva app E-commerce para la marca  de indumentaria **"Las Chu
  + React Js
 
 ## Demo
-Al estar aún en pleno desarrollo no se encuentra disponible un link al Demo de la app pero puedes comenzar a correr la misma clonando el repositorio en tu editor de codigo (_modo development_) y luego en tu navegador abrir la siguiente URL: 
+> Al estar aún en pleno desarrollo no se encuentra disponible un link al Demo de la app pero puedes comenzar a correr la misma clonando el repositorio en tu editor de codigo (_modo development_) y luego en tu navegador abrir la siguiente URL: 
 [http://localhost:3000].
 As you can see the app is still "under construction" is not possible to give you an app demo's link, but if you want to run it just clone the repository on your code editor (_development mood_) and then open the following link on your browser. [http://localhost:3000].
 
