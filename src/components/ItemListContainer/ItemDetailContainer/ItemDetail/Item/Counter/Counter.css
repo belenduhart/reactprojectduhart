@@ -4,12 +4,82 @@
     text-align: center;
 }
 
-.buttonStyle{
-    border-radius:10px;
-    color:white;
-    font-weight:bold;
-    background-color: #0d6efdc2;
-    text-align:center;
-    padding: 1vh 1vw;
+.cardStyle2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 55vw;
+    border-radius: 10px;
+    background-color: #0898951f;
+    height: 60vh;
+    padding: 1vw 1vh;
+    border: 2px solid #000000;
+    margin: 2vh auto;
 }
 
+.counterCointainer{
+    margin: 0vh auto;
+}
+
+.contador{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.sizeSelector{
+    margin: 3vh auto;
+    text-align: center;
+}
+
+.sizeselector{
+    width: 40%;
+    text-align: center;
+    margin-left: 4vw;
+    border-radius: 10px;
+}
+
+.colorselector{
+    width: 60%;
+    text-align: center;
+    margin-left: 2vw;
+    border-radius: 10px;
+}
+
+
+@media only screen and (max-width:480px){
+    .cardStyle2{
+        width: 90%;
+        height: 80vh;
+        flex-direction: column;
+    }
+    .cardImage2{
+        width: 65vw !important;
+    }
+    .sizeSelector{
+        text-align: center;
+        margin-top: 1vh;
+    }
+    .sizeselector, .colorselector{
+        width: 80%;
+        margin-top: 0.5vh;
+    }
+    .buttonStyle{
+        width: 10vw !important;
+    }
+    .cardCounter{
+        width: 15vw !important;
+    }
+    .contador{
+        margin-bottom: 3vh;
+    }
+    .selectores{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+}

@@ -1,28 +1,63 @@
 import { useState } from "react";
+import "./AddCartButton.css";
+import {Link} from "react-router-dom";
 
-const AddToCartButton = ()=>{
+
+const AddToCartButton = ({count})=>{
     const [inputType, setInputType] = useState('button')
     const AddButton = ()=>{
         return (
             <>
-            <button className="buttonStyle" style= {{width:"13vw", margin:"1vh 1vw"}} onClick = {Intercambiar} >¡Agregar al Carrito!</button>
+            <div className="buttonContainer">
+                <div className="btn" onClick = {Intercambiar}  >
+                    <span className="flip-front">¡Agregar al carrito!</span>
+                    <span className="flip-back">¡Agregame!</span>
+                </div>
+            </div>
             </>
         )
     }
-    const SuccessButton = ()=>{
-        return (
-            <button className="btn btn-success" style= {{width:"13vw", margin:"1vh 1vw"}} >¡Producto Agregado!<br/>  Ir al carrito</button>
-        )
-    }
+
 
     const Intercambiar = ()=>{
-        setInputType('input')
+            setInputType('input')
+            // stock = (stock - count)
+            
+            // alert ("¡Gracias! ¡Agregamos " + count + " producto al carrito!")
+    }
+
+    const SuccessButton = ({count})=>{
+        console.log( count + " productos agregados al carrito")
+        return (
+            <>
+            <div className="notificacionAgregado">¡Agregamos {count} productos al carrito!</div>
+            <div className="containerBotonesSuccess">
+            <Link exact to="/cart">
+            <div className="buttonContainer">
+                <div className="btn2">
+                    <span className="flip-front2">¡Terminar compra!</span>
+                    <span className="flip-back2">¡Vamos al carrito!</span>
+                </div>
+            </div>
+            </Link>
+            <Link exact to="/categoria">
+            <div className="buttonContainer">
+                <div className="btn2">
+                    <span className="flip-front2">¡Seguir comprando!</span>
+                    <span className="flip-back2">¡Sigamos!</span>
+                </div>
+            </div>
+            </Link>
+            </div>
+            </>
+        )
     }
     
+
     return(
         <>
-        {inputType === 'button' ?
-        <AddButton/> : <SuccessButton/> 
+        {(inputType === 'button') ?
+        <AddButton/> : <SuccessButton count={count}/> 
         }
         </>
     )

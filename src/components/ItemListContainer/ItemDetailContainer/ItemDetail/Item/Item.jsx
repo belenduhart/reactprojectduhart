@@ -19,8 +19,6 @@ const Item = ({producto})=>{
         }, [id]);
         console.log(id);
         console.log(productoComprar)
-        
-
 
     return (
         <>
@@ -33,3 +31,29 @@ const Item = ({producto})=>{
 
 
 export default Item;
+
+// const Item = ({producto})=>{
+//     const [productoComprar, setProductoComprar] = useState({});
+//     const {id}=useParams();
+    
+//     useEffect(() => {
+//         if (id){
+//             ObtenerTarjetas
+//             .then( respuesta => {
+//                     setProductoComprar(respuesta.find( producto => producto.id === id))
+//                 })
+//             .catch(error => console.log(error))
+//             }
+//         }, [id]);
+//         console.log(id);
+//         console.log(productoComprar)
+        
+
+
+//     return (
+//         <>
+//         <Counter producto ={productoComprar}/>
+//         </>
+//     )
+
+// }
