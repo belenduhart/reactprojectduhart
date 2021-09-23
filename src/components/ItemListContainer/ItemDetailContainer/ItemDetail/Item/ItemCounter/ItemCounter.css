@@ -1,7 +1,9 @@
 .cardCounter{
     width: 3vw;
     margin: 1vh 1vw;
-    text-align: center;
+    text-align: right;
+    border-radius: 10px;
+    background-color: white;
 }
 
 .cardStyle2{

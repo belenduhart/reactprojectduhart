@@ -29,9 +29,7 @@ const ItemCounter = ({producto})=>{
             }
         }
 
-        // const AgregarAlCarrito = ()=> {
-        //     OnAdd(count)
-        // }
+
     //Obtencion colores para el selector
         // const ColorSelector = ({producto}) =>{
         //     return(
@@ -47,7 +45,7 @@ return (
     
         <div className="contador">
             <button  className="buttonStyle" style= {{width:"3vw"}} onClick={AddOneProduct}>+</button>
-            <input className="cardCounter" type="number" name="" value= {count} />
+            <input className="cardCounter" type="number" name="" value= {count} disabled/>
             <button className="buttonStyle" style= {{width:"3vw"}} onClick={RestOneProduct}>-</button>
         </div>
         <AddToCartButton stock={producto.stock} count={count} onAdd={onAdd} />

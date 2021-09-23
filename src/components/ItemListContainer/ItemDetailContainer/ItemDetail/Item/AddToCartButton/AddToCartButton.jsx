@@ -11,7 +11,7 @@ const AddToCartButton = ({stock, count, onAdd})=>{
         return (
             <>
             <div className="buttonContainer">
-                <div className="btn" onClick = {Intercambiar}>
+                <div className="btn" onClick = {AgregarAlCarrito}>
                     <span className="flip-front">¡Agregar al carrito!</span>
                     <span className="flip-back">¡Agregame!</span>
                 </div>
@@ -50,11 +50,11 @@ const AddToCartButton = ({stock, count, onAdd})=>{
 
         const Intercambiar = ()=>{
             setInputType('input')
-            AgregarAlCarrito()
         }
         
         const AgregarAlCarrito = () => {
             onAdd(count)
+            Intercambiar()
         }
 
     return(
