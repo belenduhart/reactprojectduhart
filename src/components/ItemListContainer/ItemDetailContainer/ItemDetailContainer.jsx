@@ -6,11 +6,10 @@ const ItemDetailContainer = ({product})=>{
             product.map(product=> <div className="cardStyle">
             <img className="cardImage" src={product.picture} alt={product.name} />
             <p className="tituloProducto" key={product.id}> {product.name} </p>
-            <ItemDetail price={product.price} id={product.id} stock={product.stock} picture={product.picture} name={product.name}/>
+            <ItemDetail product={product}/>
             <div className="ProductDetailsDiv"> </div>
             </div>)
         )
     }
-
 
 export default ItemDetailContainer;

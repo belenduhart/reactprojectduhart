@@ -1,15 +1,15 @@
 import { useState } from "react";
 import "./ItemDetail.css"
 import { Link } from "react-router-dom";
-import Item from "./Item/Item";
 
 
-const ItemDetail = (props)=>{
+
+const ItemDetail = ({product})=>{
     const [show, setShow] = useState(true);
-<Item producto={props.id}/>
+
         return (
         <>
-        <Link to={`/detalle/${props.id}`} >
+        <Link to={`/detalle/${product.id}`} >
             <button className="buttonStyle" type="button" onClick={() => {setShow(!show);}}>
                 {show ? 'Mostrar Detalles' : 'Yendo al Producto'}
             </button>
