@@ -3,7 +3,7 @@ import "./AddCartButton.css";
 import {Link} from "react-router-dom";
 
 
-const AddToCartButton = ({count})=>{
+const AddToCartButton = (props)=>{
     const [inputType, setInputType] = useState('button')
     const AddButton = ()=>{
         return (
@@ -21,16 +21,14 @@ const AddToCartButton = ({count})=>{
 
     const Intercambiar = ()=>{
             setInputType('input')
-            // stock = (stock - count)
-            
-            // alert ("¡Gracias! ¡Agregamos " + count + " producto al carrito!")
     }
 
-    const SuccessButton = ({count})=>{
-        console.log( count + " productos agregados al carrito")
+    const SuccessButton = ({props})=>{
+        console.log( props.count + " productos agregados al carrito")
+        console.log("stock disponible: " + ((props.stock)-(props.count)))
         return (
             <>
-            <div className="notificacionAgregado">¡Agregamos {count} productos al carrito!</div>
+            <div>¡Agregamos {props.count} productos al carrito!</div>
             <div className="containerBotonesSuccess">
             <Link exact to="/cart">
             <div className="buttonContainer">
@@ -57,7 +55,7 @@ const AddToCartButton = ({count})=>{
     return(
         <>
         {(inputType === 'button') ?
-        <AddButton/> : <SuccessButton count={count}/> 
+        <AddButton/> : <SuccessButton props={props}/> 
         }
         </>
     )

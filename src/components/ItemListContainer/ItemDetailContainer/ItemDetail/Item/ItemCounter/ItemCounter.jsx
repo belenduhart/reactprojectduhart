@@ -1,8 +1,8 @@
-import "./Counter.css"
+import "./ItemCounter.css"
 import { useState } from "react";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 
-const Counter = ({producto})=>{
+const ItemCounter = ({producto})=>{
     let stock = (producto.stock);
     const [count, setCount] = useState(1);
 
@@ -65,12 +65,12 @@ return (
             <input className="cardCounter" type="number" name="" value= {count} />
             <button className="buttonStyle" style= {{width:"3vw"}} onClick={RestOneProduct}>-</button>
         </div>
-        <AddToCartButton count= {count} />
+        <AddToCartButton stock={producto.stock} count= {count} />
         </div>
     </div>
     </>
 )
 }
 
-export default Counter;
+export default ItemCounter;
 

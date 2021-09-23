@@ -1,13 +1,21 @@
-import Counter from "./Counter/Counter";
+import ItemCounter from "./ItemCounter/ItemCounter";
 import "./Item.css";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import ObtenerTarjetas from "../../../Mock/Mock";
 
 const Item = ({producto})=>{
+    // const  OnAdd = (count)=>{
+    //     return(
+    //         <>
+    //         <div>¡Agregamos {count} productos al carrito!</div>
+    //         </>
+    //     )
+    // }
     const [productoComprar, setProductoComprar] = useState({});
     const {id}=useParams();
-    
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         if (id){
             ObtenerTarjetas
@@ -15,6 +23,7 @@ const Item = ({producto})=>{
                     setProductoComprar(respuesta.find( producto => producto.id === id))
                 })
             .catch(error => console.log(error))
+            .finally(()=> setLoading(false))
             }
         }, [id]);
         console.log(id);
@@ -22,7 +31,8 @@ const Item = ({producto})=>{
 
     return (
         <>
-        <Counter producto ={productoComprar}/>
+        {loading ? <h4> Cargando Producto...</h4> :
+        <ItemCounter producto ={productoComprar}/>}
         </>
     )
 
