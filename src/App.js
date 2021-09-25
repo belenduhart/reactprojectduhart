@@ -1,16 +1,25 @@
+//Styles
 import './App.css';
+
+//Utilities
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+// Components
 import NavBar from './components/NavBar/NavBar';
 import Header from './components/Header/Header';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Cart from './components/Cart/Cart';
 import HowToBuy from './components/NavBar/HowToBuy/HowToBuy';
 import Item from './components/ItemListContainer/ItemDetailContainer/ItemDetail/Item/Item';
+//Context
+import { CartContextProvider } from './components/CartContext/CartContext';
 
 
+//Main component/function
 function App() {
   return (
+    <CartContextProvider>
     <BrowserRouter>
       <div>
         <NavBar/>
@@ -33,6 +42,7 @@ function App() {
         <Route exact path="/comocomprar" component={HowToBuy}/>
       </Switch>
     </BrowserRouter>
+    </CartContextProvider>
   );
 }
 

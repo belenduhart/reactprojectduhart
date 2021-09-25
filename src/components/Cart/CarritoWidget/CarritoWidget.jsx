@@ -1,12 +1,23 @@
 // Icono del carrito me lleva al carrito "CART"
+//style
 import './CarritoWidget.css';
+
+//Utilities
 import { Link } from 'react-router-dom';
 
+//Components
+import { useCartContext } from '../../CartContext/CartContext';
+
+
 const CarritoWidget = ()=>{
+    const {cartTotalCount} = useCartContext()
     return (
-    <Link exact to="/cart">
-    <img className="CarritoWidget" 
-    src='https://i.ibb.co/7pyD7tS/edit-1105049-960-720.png' alt="carrito compras" />
+    <Link exact to="/cart" style={{textDecoration:"none"}}>
+        <div className="carritoContainer">
+            <i id="CarritoWidget" className="fas fa-shopping-cart"/>
+            {((cartTotalCount()) !== 0) ? <label id="CarritoWidget">{cartTotalCount()}</label> : ""
+            }
+        </div>
     </Link>
     )
 }

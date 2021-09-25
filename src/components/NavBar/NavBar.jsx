@@ -1,14 +1,19 @@
+//Style
+import "./NavBar.css";
+
+//Utilities
 import {Link} from "react-router-dom";
+
+//Components
 import CarritoWidget from "../Cart/CarritoWidget/CarritoWidget";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "./NavBar.css";
-
 
 const NavBar= () =>{
     return (
         <>
+        <div className="ContenedorNavBar">
         <div className="NavBarContainer">
             {/* Logo de la marca */}
         <img className="NavBarLogo"
@@ -53,8 +58,9 @@ const NavBar= () =>{
                 </Nav>
             {/* Icono del carrito */}
             </Navbar.Collapse>
-            <CarritoWidget />
             </Navbar>
+            </div>
+            <CarritoWidget />
             </div>
         </>
     )

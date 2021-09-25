@@ -2,3 +2,33 @@
     text-align: center;
     color: red;
 }
+
+.CartProduct{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    background-color: rgba(173, 216, 230, 0.604);
+    border-radius: 10px;
+    width: 80%;
+    margin: 2vh auto;
+    padding: 1vh 1vw;
+    box-shadow: 5px 5px 15px 5px #000000;
+
+}
+
+.CartProduct img{
+    width: 8%;
+    border-radius: 10px;
+}
+
+.totalAmount{
+    width: 90%;
+    margin: 3vh auto;
+    background-color: rgba(173, 216, 230, 0.44);
+    padding: 1vh 1vw;
+    border-radius: 10px;
+    font-size: 1.5em;
+    text-align: center;
+    border: 1px solid black;
+}

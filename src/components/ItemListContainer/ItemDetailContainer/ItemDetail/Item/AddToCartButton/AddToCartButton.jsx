@@ -1,9 +1,12 @@
 import { useState } from "react";
 import "./AddCartButton.css";
 import {Link} from "react-router-dom";
+import { useCartContext } from "../../../../../CartContext/CartContext";
 
 
-const AddToCartButton = ({stock, count, onAdd})=>{
+const AddToCartButton = ({item, stock, count, onAdd})=>{
+
+   const { addItem } = useCartContext()
 
     const [inputType, setInputType] = useState('button')
 
@@ -53,8 +56,10 @@ const AddToCartButton = ({stock, count, onAdd})=>{
         }
         
         const AgregarAlCarrito = () => {
+            addItem(item, count)
             onAdd(count)
             Intercambiar()
+            //Item added to cartList
         }
 
     return(

@@ -5,6 +5,13 @@
     flex-wrap:nowrap;
 }
 
+.ContenedorNavBar{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
 .NavBarLogo{
     width: 150px;
     height: 150px;
@@ -22,15 +29,23 @@
 }
 
 
-@media only screen and (max-width: 480px){
-    .NavBarLogo{
-        width: 15vw;
-        height: 10vh;
-        -top: 1vh;
-        margin-right: 25vw;
-        margin-left: 5vw;
-    }
-    #navbarScrollingDropdown{
-        z-index: 42432434 !important;
-    }
+@media only screen and (max-width: 1000px){
+.NavBarra{
+    order: -1;
+}
+.NavBarLogo{
+    margin: 1vh 27%;
+}
+#navbarScroll div{
+    max-height: 100vw !important;
+    width: 38vw !important;
+    position: absolute;
+    z-index: 43423;
+    border-radius: 10px;
+    background-color: white;
+    text-align: center;
+}
+
+
+
     }
