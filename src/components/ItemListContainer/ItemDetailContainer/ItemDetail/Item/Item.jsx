@@ -1,8 +1,14 @@
-import ItemCounter from "./ItemCounter/ItemCounter";
+//Styles
 import "./Item.css";
+
+//Components
+import ItemCounter from "./ItemCounter/ItemCounter";
+// import ObtenerTarjetas from "../../../Mock/Mock";
+
+//Utilities
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
-import ObtenerTarjetas from "../../../Mock/Mock";
+import { getFirestore } from "../../../../../services/getFireBase";
 
 const Item = ()=>{
   
@@ -11,17 +17,29 @@ const Item = ()=>{
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (id){
-            ObtenerTarjetas
-            .then( respuesta => {
-                    setProductoComprar(respuesta.find( producto => producto.id === id))
-                })
-            .catch(error => console.log(error))
-            .finally(()=> setLoading(false))
-            }
-        }, [id]);
-        console.log(id);
-        console.log(productoComprar)
+        const dbQuery = getFirestore();
+        dbQuery.collection('productos').doc(id).get()
+        .then(resp=> {
+            console.log(resp)
+            setProductoComprar({id:resp.id,...resp.data() })
+        })
+        .catch(error => console.log(error))
+        .finally(()=> setLoading(false))
+        
+    }, [id]);
+
+    //Sin firebase
+        // if (id){
+        //     ObtenerTarjetas
+        //     .then( respuesta => {
+        //             setProductoComprar(respuesta.find( producto => producto.id === id))
+        //         })
+        //     .catch(error => console.log(error))
+        //     .finally(()=> setLoading(false))
+        //     }
+        // }, [id]);
+        // console.log(id);
+        // console.log(productoComprar)
 
     return (
         <>

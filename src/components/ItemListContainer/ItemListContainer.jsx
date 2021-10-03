@@ -1,7 +1,11 @@
+//Components
+import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer";
+// import ObtenerTarjetas from "./Mock/Mock";
+
+//Utilities
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer";
-import ObtenerTarjetas from "./Mock/Mock";
+import { getFirestore } from "../../services/getFireBase";
 
 
 const ItemListContainer = ()=>{
@@ -11,22 +15,48 @@ const [loading, setLoading] = useState(true);
 const {idCategoria}=useParams();
 
 useEffect(() => {
-    if (idCategoria){
-        ObtenerTarjetas
-        .then(respuesta => {
-        setProductos(respuesta.filter( product => product.categoria === idCategoria))})
+    
+    //Funciones para firestore
+    //Obtengo la coleccion
+    if(idCategoria){
+        const dbQuery = getFirestore();
+        dbQuery.collection('productos').where('categoria', '==', idCategoria).get()
+        .then(resp=> {
+            setProductos(resp.docs.map(producto=> ({id:producto.id,...producto.data() })))
+        })
         .catch(error => console.log(error))
         .finally(()=> setLoading(false))
-    } else {
-        ObtenerTarjetas
-        .then(respuesta =>{
-        setProductos(respuesta)})
+    }else{
+        const dbQuery = getFirestore();
+        dbQuery.collection('productos').get()
+        .then(resp=> {
+            setProductos(resp.docs.map(producto=> ({id:producto.id,...producto.data() })))
+        })
         .catch(error => console.log(error))
         .finally(()=> setLoading(false))
     }
-}, [idCategoria]);
-console.log(idCategoria);
-console.log(ProductsArray);
+
+    
+}, [idCategoria])
+
+console.log(ProductsArray)
+    //Funciones sin usar Firestore
+//     if (idCategoria){
+//         ObtenerTarjetas
+//         .then(respuesta => {
+//         setProductos(respuesta.filter( product => product.categoria === idCategoria))})
+//         .catch(error => console.log(error))
+//         .finally(()=> setLoading(false))
+//     } else {
+//         ObtenerTarjetas
+//         .then(respuesta =>{
+//         setProductos(respuesta)})
+//         .catch(error => console.log(error))
+//         .finally(()=> setLoading(false))
+//     }
+// }, [idCategoria]);
+// console.log(idCategoria);
+// console.log(ProductsArray);
 
 return(
     <>
