@@ -27,7 +27,7 @@ const Item = ()=>{
         .finally(()=> setLoading(false))
         
     }, [id]);
-
+console.log(productoComprar)
     //Sin firebase
         // if (id){
         //     ObtenerTarjetas

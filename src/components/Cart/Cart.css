@@ -14,14 +14,23 @@
     margin: 2vh auto;
     padding: 1vh 1vw;
     box-shadow: 5px 5px 15px 5px #000000;
-
 }
-
+@media only screen and (max-width: 700px){
+    .CartProduct{
+        flex-direction: column;
+        justify-content: center;
+    }
+}
 .CartProduct img{
     width: 8%;
     border-radius: 10px;
 }
 
+.containerTotal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .totalAmount{
     width: 90%;
     margin: 3vh auto;
@@ -31,4 +40,89 @@
     font-size: 1.5em;
     text-align: center;
     border: 1px solid black;
+}
+
+.cartTitulo{
+    text-align: center;
+    padding: 2vh 2vw;
+    font-size: 1.3em;
+    color: black;
+}
+
+.botonesFinalesDiv{
+    margin: 2vh auto;
+
+}
+.vaciarButton{
+    background-color: rgba(240, 32, 32, 0.926);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 1vh 1vw;
+    width: 200px;
+    border-radius: 10px;
+    margin: 2vh 2vw;
+}
+.vaciarButton:hover{
+    background-color: rgba(255, 0, 0, 0.282);
+}
+    
+
+
+.pagarButton{
+    background-color: rgba(49, 112, 49, 0.857);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 1vh 1vw;
+    width: 200px;
+    border-radius: 10px;
+    margin: 2vh  2vw;
+}
+.pagarButton:hover{
+    background-color: rgba(33, 228, 33, 0.282);
+}
+
+.confirmacionContainer{
+    width: 100%;
+    background-color: rgba(173, 216, 230, 0.487);
+}
+.confirmacionContainerbis{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    justify-content: center;
+    width: 40%;
+}
+
+.cerrar{
+    padding: 1vh 1vw;
+    color: white;
+    font-weight: bold;
+    background-color: red;
+    margin: 1vh 2vw;
+    border-radius: 10px;
+}
+.cerrar:hover{
+        background-color: rgba(255, 0, 0, 0.282);
+}
+.tituloConfirmacion{
+    font-size: 1.3em;
+    color: black;
+    text-align: center;
+    padding: 2vh 2vw;
+}
+
+.confirmarBorrar{
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 1vh 1vw;
+    width: 200px;
+    border-radius: 10px;
+
+}
+.confirmarBorrar:hover{
+    background-color: rgba(255, 0, 0, 0.282);
 }

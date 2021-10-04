@@ -12,10 +12,15 @@ const Cart = () => {
     const{ cartList }= useCartContext() 
     const { removeItem } = useCartContext()
     const { cartTotalAmount } = useCartContext()
-
+    const {emptyCart} = useCartContext()
     console.log(cartList)
     return(
         <>
+        {
+            (cartList.length !== 0)? <div className="cartTitulo"><b>PRODUCTOS AGREGADOS AL CARRITO</b>
+            </div>
+            : ""
+        }
         {
             (cartList.length === 0 )? <>
             <h1 className="emptyCart"> ¡Ups! <br/> parece que no agregaste nada al carrito todavía</h1>
@@ -34,7 +39,15 @@ const Cart = () => {
             </>)
             )}
         {
-            (cartList.length !== 0)?  <div className="totalAmount">Total: ${cartTotalAmount()} </div> : ""
+            (cartList.length !== 0)? <> 
+            <div className="containerTotal">
+            <div className="totalAmount">Total: ${cartTotalAmount()} </div> 
+            <div className="botonesFinalesDiv">
+                <button className="vaciarButton" onClick={() => emptyCart()}>Vaciar Carrito</button>
+                <button className="pagarButton">Pagar</button>
+            </div>
+            </div>
+            </>: ""
         }
         </>
     )

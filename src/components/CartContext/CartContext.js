@@ -1,6 +1,7 @@
 import {React} from 'react';
 import {useState, createContext, useContext} from 'react';
 
+
 export const CartContext = createContext([]);
 
 export const useCartContext = () => useContext(CartContext)
@@ -30,6 +31,10 @@ export const CartContextProvider = ({defaultValue = [], children})=>{
         setCartList (cartList.filter(({item}) => item.id !== id))
     }
     //Vaciar todo el carrito
+    //Confirmar borrado
+
+
+
     const emptyCart = () =>{
         setCartList([])
     }
