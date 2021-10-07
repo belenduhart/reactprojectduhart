@@ -13,36 +13,34 @@ const ItemCounter = ({producto})=>{
     const onAdd = (cant) => {
         console.log("Se agregaron "+ cant + " productos")
         setCantidadProductos(cant)
+        console.log(cantidadProductos)
     }
 
     let stock = (producto.stock);
     const [count, setCount] = useState(1);
-
-        function AddOneProduct (){
-            if (count <= (stock - 1)){
-                setCount(count + 1);
-            }else {
-                alert ("Lo siento, ¡No contamos con más stock!")
-            }
+    const AddOneProduct = () => {
+        if (count <= (stock - 1)){
+            setCount(count + 1);
+        }else {
+            alert ("Lo siento, ¡No contamos con más stock!")
         }
-        function RestOneProduct (){
-            if (count <= 1){
-                return false;
-            }else {
-                setCount(count - 1)
-            }
+    }
+    const RestOneProduct = () => {
+        if (count <= 1){
+            return false;
+        }else {
+            setCount(count - 1)
         }
-
-
+    }
     //Obtencion colores para el selector
-        // const ColorSelector = ({producto}) =>{
-        //     return(
-        //         <>
-        //         {producto.forEach(producto =>
-        //         <option value="{producto.color.name}">{producto.color.name}</option>)}
-        //         </>
-        //     )
-        // }
+    // const ColorSelector = ({producto}) =>{
+    //     return(
+    //         <>
+    //         {producto.forEach(producto =>
+    //         <option value="{producto.color.name}">{producto.color.name}</option>)}
+    //         </>
+    //     )
+    // }
 
 return (
     <>

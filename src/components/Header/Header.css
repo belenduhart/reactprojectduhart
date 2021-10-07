@@ -1,4 +1,58 @@
-.HeaderImg{
+/* Carrousel */
+@media only screen and (max-width: 480px) {
+.carrousel{
+    display: none;
+}
+.carousel-inner{
     width: 100%;
-    margin-top: 1vh;
+    height: 0;
+}
+}
+@media only screen and (max-width: 800px) {
+.carrousel__divP {
+    padding-top: 60px;
+    font-size: 6px;
+    display: block;
+    text-align: center;
+}
+}
+
+.carousel-inner{
+    position: relative;
+    width: 84%;
+    height: 71vh;
+    overflow: hidden;
+    margin: 3vh auto;
+    border-radius: 10px;
+}
+.carrousel__img{
+    height: 73vh;
+    width: 100%;
+}
+.carrousel__divP {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0%;
+    background-color: #9abac45b;
+    height: 100%;
+    width: 100%;
+}
+.carrousel__p{
+    position: relative;
+    width: 80%;
+    color: white;
+    font-size: 4.5em;
+    font-weight: bold;
+    margin: 10% 0 0 15%;
+    animation-duration: 1s;
+    animation-name: slidein1;
+    @keyframes slidein1 {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 100%;
+            }
+        }
 }

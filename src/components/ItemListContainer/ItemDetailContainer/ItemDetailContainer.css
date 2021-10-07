@@ -1,4 +1,4 @@
-.cardStyle{
+/* .cardStyle{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,4 +28,93 @@
 .tituloProducto{
     margin-top:2vh;
     font-weight: bold;
+} */
+
+
+.card {
+    /* position: absolute;
+    top: 50%;
+    left: 50%; */
+    /* transform: translate(-50%,-50%); */
+    width: 293px;
+    height: 265px;
+    border-radius: 10px;
+    padding: 2vh 1vw;
+    margin: 3vh 1vw 2vh 1vw;
+    border: 0px;
+}
+.card .image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.card .image img {
+    width: 100%;
+    transition: .5s;
+}
+.card:hover .image img {
+    opacity: .5;
+    transform: translateX(30%);/*100%*/
+}
+.card .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;/*100%*/
+    height: 100%;
+    background: #406c74;
+    transition: .5s;
+    transform-origin: left;
+    transform: perspective(2000px) rotateY(-90deg);
+}
+.card:hover .details {
+    transform: perspective(2000px) rotateY(0deg);
+}
+.card .details .center {
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.card .details .center h1 {
+    margin: 0;
+    padding: 0;
+    color: #000000;
+    line-height: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.card .details .center h1 span {
+    font-size: 14px;
+    color: #262626;
+}
+.card .details .center p {
+    margin: 10px 0;
+    padding: 0;
+    color: #262626;
+}
+.card .details .center ul {
+    margin: 10px auto 0;
+    padding: 0;
+    display: table;
+}
+.card .details .center ul li {
+    list-style: none;
+    margin: 20px 5px;
+    /* float: left; */
+}
+.card .details .center ul li a {
+    display: block;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    transform: .5s;
+}
+
+.card .details .center ul li a:hover{
+    transform:scale(0.91);
 }

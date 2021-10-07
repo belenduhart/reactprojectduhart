@@ -6,7 +6,7 @@ import { useCartContext } from "../../../../../CartContext/CartContext";
 
 const AddToCartButton = ({item, stock, count, onAdd})=>{
 
-   const { addItem } = useCartContext()
+    const { addItem } = useCartContext()
 
     const [inputType, setInputType] = useState('button')
 

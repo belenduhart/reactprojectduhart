@@ -28,6 +28,17 @@
     margin-left: 2vw;
 }
 
+.hover:hover{
+    background-color: rgba(100, 148, 237, 0.192);
+    border-radius: 10px;
+}
+a{
+    text-decoration: none;
+}
+
+.nav-link{
+    font-size: 1.3em;
+}
 
 @media only screen and (max-width: 1000px){
 .NavBarra{
@@ -37,15 +48,27 @@
     margin: 1vh 27%;
 }
 #navbarScroll div{
-    max-height: 100vw !important;
-    width: 38vw !important;
-    position: absolute;
+    width: 100vw !important;
+    position: relative;
     z-index: 43423;
     border-radius: 10px;
     background-color: white;
     text-align: center;
 }
+}
 
+marquee{
+    background-color:white;
+    color: rgb(54, 88, 151);
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    padding: 0.5vh 0;
+}
 
-
+@media only screen and (max-width: 480px){
+    marquee{ 
+        display: none;
     }
+}
+

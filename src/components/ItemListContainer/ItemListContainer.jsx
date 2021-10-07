@@ -60,7 +60,20 @@ console.log(ProductsArray)
 
 return(
     <>
-    {loading ? <h4> Cargando Productos...</h4> : 
+    {loading ? 
+        <div>
+        <h4> Cargando Productos</h4>
+        <div style={{marginLeft:"1vw"}}class="spinner-grow text-muted"></div>
+        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-primary"></div>
+        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-success"></div>
+        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-info"></div>
+        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-warning"></div>
+        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-danger"></div>
+        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-secondary"></div>
+        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-dark"></div>
+        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-light"></div>
+        </div>
+        : 
         <ItemDetailContainer product={ProductsArray}/>
     }
     </>

@@ -12,6 +12,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import Cart from './components/Cart/Cart';
 import HowToBuy from './components/NavBar/HowToBuy/HowToBuy';
 import Item from './components/ItemListContainer/ItemDetailContainer/ItemDetail/Item/Item';
+import Footer from './components/Footer/Footer';
 //Context
 import { CartContextProvider } from './components/CartContext/CartContext';
 
@@ -41,6 +42,7 @@ function App() {
         <Route exact path="/detalle/:id" component={Item}/>
         <Route exact path="/comocomprar" component={HowToBuy}/>
       </Switch>
+      <Footer/>
     </BrowserRouter>
     </CartContextProvider>
   );

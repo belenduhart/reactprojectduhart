@@ -1,9 +1,11 @@
 #CarritoWidget{
-    font-size: 1.5em;
-    color: white;
+    font-size: 2.5em;
+    color: #238e95;
+    /* font-weight: 900; */
     text-decoration: none;
     padding: 1vh 0.5vw;
 }
+
 
 .carritoContainer{
     display:flex;
@@ -12,7 +14,5 @@
     padding: 2vh 1vw;
     align-items: center;
     border-radius: 50%;
-    background-color: rgb(43,144,155);
-    box-shadow: 5px 5px 15px 5px rgb(34,161,137);
 }
 

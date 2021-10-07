@@ -6,3 +6,18 @@
 #buyButton{
     margin: 1vh 50vw;
 }
+
+.buttonDetail{
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(34,161,137);
+    text-align: center;
+    padding: 1vh 1vw;
+    width: 100%;
+}
+/* 
+@media only screen and (max-width:800px){
+    .buttonDetail{
+        width: 100%;
+    }
+} */

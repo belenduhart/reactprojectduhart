@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 //Components
 import { useCartContext } from "../CartContext/CartContext";
+import PaymentForm from "./PaymentForm";
 
 const Cart = () => {
     const{ cartList }= useCartContext() 
@@ -14,6 +15,7 @@ const Cart = () => {
     const { cartTotalAmount } = useCartContext()
     const {emptyCart} = useCartContext()
     console.log(cartList)
+
     return(
         <>
         {
@@ -44,7 +46,7 @@ const Cart = () => {
             <div className="totalAmount">Total: ${cartTotalAmount()} </div> 
             <div className="botonesFinalesDiv">
                 <button className="vaciarButton" onClick={() => emptyCart()}>Vaciar Carrito</button>
-                <button className="pagarButton">Pagar</button>
+                <PaymentForm/>
             </div>
             </div>
             </>: ""
@@ -52,5 +54,8 @@ const Cart = () => {
         </>
     )
 }
+
+
+
 
 export default Cart;
