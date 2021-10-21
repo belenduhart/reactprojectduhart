@@ -6,7 +6,7 @@ const ItemDetailContainer = ({product})=>{
             product.map(product=>
                 <div class="card">
                     <div class="image">
-                        <img class="image" src={product.picture}/>
+                        <img class="image" src={product.picture[0]}/>
                     </div>
                 <div class="details">
                 <div class="center">

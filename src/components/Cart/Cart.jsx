@@ -12,9 +12,9 @@ import PaymentForm from "./PaymentForm";
 const Cart = () => {
     const{ cartList }= useCartContext() 
     const { removeItem } = useCartContext()
+    const { colorSeleccionado } = useCartContext()
     const { cartTotalAmount } = useCartContext()
     const {emptyCart} = useCartContext()
-    console.log(cartList)
 
     return(
         <>
@@ -27,16 +27,24 @@ const Cart = () => {
             (cartList.length === 0 )? <>
             <h1 className="emptyCart"> ¡Ups! <br/> parece que no agregaste nada al carrito todavía</h1>
             <Link exact to="/categoria">
-            <button className="buttonStyle" style={{width:"20vw", margin:"1vh 40%"}}> ¡Comenzar a comprar! </button>
+            <button className="buttonStyle3"> ¡Comenzar a comprar! </button>
             </Link>
             </> :
             (cartList.map(i => <>
             <div className="CartProduct"> 
                 <img src={i.item.picture} alt="{i.item.name}" />
-                <p> {i.item.name}</p>
-                <p>Cantidad: {i.count}</p>
-                <p> Subtotal: $ {(i.item.price)*(i.count)} </p>
-                <div  onClick= {()=> removeItem (i.item.id)}><i class="fas fa-trash-alt"  ></i></div>
+                <p> {i.item.name} {colorSeleccionado}</p>
+                {
+                    (i.count > i.item.stock) ? 
+                    (<><p>Contamos solo con: {i.item.stock}</p>
+                    <p> Subtotal: $ {(i.item.price)*(i.item.stock)} </p></>)
+                    : 
+                    (<><p>Cantidad: {i.count}</p>
+                    <p> Subtotal: $ {(i.item.price)*(i.count)} </p>
+                    </>
+                    )
+                }
+                <div onClick= {()=> removeItem (i.item.id)}><i class="fas fa-trash-alt"  ></i></div>
             </div>
             </>)
             )}

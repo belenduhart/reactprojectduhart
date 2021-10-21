@@ -1,5 +1,6 @@
 // Imagen del home de landingpage
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 const Header= ()=>{
     return (
@@ -37,6 +38,36 @@ const Header= ()=>{
         <span class="visually-hidden"></span>
         </button>
     </div>
+        <div className="contcardHome">
+            <p className="h4Header">
+                El estilo, es un vehículo para expresar <b> quienes somos...</b> <br/>
+                Concentrate en revelar <b>tu verdadero ser...</b></p>
+            <div className="cardHome" id="rem">
+                <Link exact to="categoria/Remeras">
+                <p>Remeras</p>
+                </Link>
+            </div>
+            <div className="cardHome" id="blu">
+            <Link exact to="categoria/Blusas">
+                <p>Blusas</p>
+            </Link>
+            </div>
+            <div className="cardHome" id="bu">
+            <Link exact to="categoria/Buzos">
+                <p>Buzos</p>
+            </Link>
+            </div>
+            <div className="cardHome" id="po">
+            <Link exact to="categoria/Polleras">
+                <p>Polleras</p>
+            </Link>
+            </div>
+            <div className="cardHome" id="pan">
+            <Link exact to="categoria/Pantalones">
+                <p>Pantalones</p>
+            </Link>
+            </div>
+        </div>
         </>
     );
 }

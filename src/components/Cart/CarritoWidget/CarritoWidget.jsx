@@ -14,7 +14,7 @@ const CarritoWidget = ()=>{
     return (
     <Link exact to="/cart" style={{textDecoration:"none"}}>
         <div className="carritoContainer">
-            <i id="CarritoWidget" className="fas fa-shopping-cart"/>
+            <i id="CarritoWidget" className="fas fa-shopping-bag"/>
             {((cartTotalCount()) !== 0) ? <label id="CarritoWidget">{cartTotalCount()}</label> : ""
             }
         </div>

@@ -20,14 +20,14 @@ const Item = ()=>{
         const dbQuery = getFirestore();
         dbQuery.collection('productos').doc(id).get()
         .then(resp=> {
-            console.log(resp)
             setProductoComprar({id:resp.id,...resp.data() })
         })
         .catch(error => console.log(error))
         .finally(()=> setLoading(false))
         
     }, [id]);
-console.log(productoComprar)
+
+    
     //Sin firebase
         // if (id){
         //     ObtenerTarjetas
@@ -59,19 +59,40 @@ console.log(productoComprar)
         : 
         <div className="cardStyle2">
         <div className="counterCointainer">
-        <img className="cardImage2" src={productoComprar.picture} alt={productoComprar.name} />
+        {/* <img className="cardImage2" src={productoComprar.picture} alt={productoComprar.name} /> */}
+        <div id="carouselExampleControls" className="carousel slide carouitem"  data-bs-pause="hover" data-bs-interval="false">
+                <div id= "carouselProductos" className="carousel-inner">
+                <div  className="carousel-item active" data-bs-ride="">
+                <img src={productoComprar.picture[0]} id="cardImage2" className="d-block" alt={productoComprar.name} />
+                </div>
+                <div className="carousel-item">
+                <img src={productoComprar.picture[1]} id="cardImage2" className="d-block" alt={productoComprar.name} />
+                </div>
+                <div className="carousel-item">
+                <img src={productoComprar.picture[2]} id="cardImage2" className="d-block" alt={productoComprar.name} />
+                </div>
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span className="carousel-control-prev-icon"  id="iconPrevNext" aria-hidden="true"></span>
+                <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next"  type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span className="carousel-control-next-icon" id="iconPrevNext" aria-hidden="true"></span>
+                <span className="visually-hidden">Next</span>
+                </button>
+        </div>
         <p className="tituloProducto">{productoComprar.name}</p>
-        <p className="detalles">Precio: ${productoComprar.price}.-</p>
-        <p className="detalles">Stock disponible: {productoComprar.stock} unidades</p>
         </div>
         <div className="counterCointainer">
+       
             {/* Seleccion de colores a desarrollar proximamente */}
             <div className="selectores">
             <div className="sizeSelector"> 
             Color :
-            <select className="colorselector" name="Colores">
-                <option value="ejemplo"> Ejemplo </option>
-            {/* <ColorSelector/> */}
+            <select className="colorselector" id="colorselector" name="Colores" selected>
+                <option className="opciones" value={productoComprar.colores[0]}> {productoComprar.colores[0]} </option>
+                <option className="opciones" value={productoComprar.colores[1]}> {productoComprar.colores[1]} </option>
+                <option className="opciones" value={productoComprar.colores[2]}> {productoComprar.colores[2]} </option>
             </select>
             </div>
             <div className="sizeSelector">
@@ -85,6 +106,7 @@ console.log(productoComprar)
             </select>
             </div>
             </div>
+            <p style={{fontSize:"2em"}}className="detalles">${productoComprar.price}.-</p>
         <ItemCounter producto ={productoComprar}/>
         </div>
         </div>

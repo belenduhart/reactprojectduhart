@@ -1,10 +1,13 @@
-.cardImage2{
-    width:21vw;
-    margin-top: 2vh;
+#cardImage2{
+    width: 288px;
     border-radius: 10px;
     box-shadow: 5px 5px 15px 5px #000000;
 }
-
+#iconPrevNext{
+    display: inline-block;
+    background-color: #22a189;
+    width: 1.5rem;
+}
 .buttonStyle{
     border-radius:10px;
     color:white;
@@ -14,7 +17,44 @@
 }
 
 .tituloProducto{
-    margin-top:2vh;
+    margin-top: 2vh;
     font-weight: bold;
+    font-size: 2em;
     text-align: center;
+    font-family: 'Cedarville Cursive', cursive;
+}
+
+#carouselProductos{
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin: 0vh auto;
+    border-radius: 10px;
+}
+
+.cardStyle2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 55vw;
+    border-radius: 10px;
+    background-color: #0898951f;
+    height: 75vh;
+    padding: 1vw 1vh;
+    margin: 0vh auto;
+    box-shadow: inset 0px 4px 15px 11px #ffffff;
+}
+.carouitem{
+    margin-top:5%;
+    width: 288px;
+}
+@media only screen and (max-width:1000px){
+    .cardStyle2{
+        width: 90%;
+        height: 90%;
+        background-color: white;
+        flex-direction: column;
+    }
 }

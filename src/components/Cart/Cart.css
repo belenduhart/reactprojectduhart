@@ -2,6 +2,42 @@
     text-align: center;
     color: red;
 }
+/* Modal */
+.Modal{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.185);
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.ModalContainer{
+    width: 60%;
+    height: 60%;
+    margin: 10% auto;
+    background-color: lightblue;
+    color: black;
+    border: 2px solid black;
+    position: relative;
+    box-shadow: 0px 5px 15px 5px #000000;
+    padding: 2vh 1vw;
+}
+.ModalContainer a{
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: red;
+    padding: 1vh 1vw;
+    box-shadow: 0px 5px 15px 5px #000000;
+}
+.ModalContainer h2{
+    margin: 4vh auto;
+    width: 62%;
+}
+.ModalContainer p{
+    text-align: center;
+}
 
 .CartProduct{
     display: flex;
@@ -249,6 +285,15 @@
     margin-top: 5px;
     padding: 0 1vw;
 }
+.buttonStyle3{
+    border-radius:10px;
+    color:white;
+    background-color: rgb(34,161,137);
+    text-align:center;
+    padding: 1vh 1vw;
+    margin:1vh 45%;
+    width: 200px;
+}
 
 @media (min-width: 576px) {
 	.payment-form .title {
@@ -270,9 +315,6 @@
     .payment-form .card-details {
     	padding: 40px 40px 30px; 
     }
-
-    /* .payment-form .card-details button {
-    	margin-top: 2em; 
-    }  */
 }
+
 

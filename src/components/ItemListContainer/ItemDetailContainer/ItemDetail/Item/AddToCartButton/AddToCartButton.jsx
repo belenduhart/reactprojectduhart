@@ -1,14 +1,21 @@
-import { useState } from "react";
+//Styles
 import "./AddCartButton.css";
-import {Link} from "react-router-dom";
+
+//Components
 import { useCartContext } from "../../../../../CartContext/CartContext";
+
+//Utilities
+import {Link} from "react-router-dom";
+import { useState } from "react";
+
 
 
 const AddToCartButton = ({item, stock, count, onAdd})=>{
 
     const { addItem } = useCartContext()
-
+    const {ColorPrenda} = useCartContext()
     const [inputType, setInputType] = useState('button')
+
 
     const AddButton = ()=>{
         return (
@@ -24,9 +31,7 @@ const AddToCartButton = ({item, stock, count, onAdd})=>{
     }
 
     
-
-    const SuccessButton = ({stock, count})=>{
-        console.log("stock disponible: " + (stock-count))
+    const SuccessButton = ({count})=>{
         return (
             <>
             <div>¡Agregamos {count} productos al carrito!</div>
@@ -49,7 +54,8 @@ const AddToCartButton = ({item, stock, count, onAdd})=>{
             </Link>
             </div>
             </>
-        )}
+        )
+    }
 
         const Intercambiar = ()=>{
             setInputType('input')
@@ -59,11 +65,14 @@ const AddToCartButton = ({item, stock, count, onAdd})=>{
             addItem(item, count)
             onAdd(count)
             Intercambiar()
+            ColorPrenda()
             //Item added to cartList
         }
 
+
     return(
         <>
+        
         {(inputType === 'button') ?
         <AddButton/> : <SuccessButton stock={stock} count={count}/> 
         }

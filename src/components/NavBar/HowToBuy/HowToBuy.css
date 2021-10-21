@@ -1,4 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
 .BuyTittle{
     text-align: center;
     color: rgb(74, 170, 202);
+}
+.htbdiv{
+    margin: 2vh 4vw;
+}
+.Firma{
+    text-align: right;
+    color: rgb(74, 170, 202);
+    font-family: 'Cedarville Cursive', cursive;
 }

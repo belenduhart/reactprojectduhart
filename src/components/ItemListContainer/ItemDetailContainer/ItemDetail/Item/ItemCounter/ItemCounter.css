@@ -6,19 +6,7 @@
     background-color: white;
 }
 
-.cardStyle2{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 55vw;
-    border-radius: 10px;
-    background-color: #0898951f;
-    height: 60vh;
-    padding: 1vw 1vh;
-    border: 2px solid #000000;
-    margin: 2vh auto;
-}
+
 
 .counterCointainer{
     margin: 0vh auto;
@@ -53,14 +41,6 @@
 
 
 @media only screen and (max-width:480px){
-    .cardStyle2{
-        width: 90%;
-        height: 80vh;
-        flex-direction: column;
-    }
-    .cardImage2{
-        width: 65vw !important;
-    }
     .sizeSelector{
         text-align: center;
         margin-top: 1vh;
@@ -73,7 +53,7 @@
         width: 10vw !important;
     }
     .cardCounter{
-        width: 15vw !important;
+        width: 10vw !important;
     }
     .contador{
         margin-bottom: 3vh;

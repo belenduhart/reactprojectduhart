@@ -20,11 +20,12 @@
 .carousel-inner{
     position: relative;
     width: 84%;
-    height: 71vh;
+    height: auto;
     overflow: hidden;
-    margin: 3vh auto;
+    margin: 0vh auto;
     border-radius: 10px;
 }
+
 .carrousel__img{
     height: 73vh;
     width: 100%;
@@ -55,4 +56,80 @@
             opacity: 100%;
             }
         }
+}
+
+/* Cards header */
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+.contcardHome{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin: 2vh auto;
+}
+.cardHome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 277px;
+    margin: 5vh 2vw;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 5px 5px 27px -1px #000000;
+    border-radius: 10px;
+}
+#rem{
+    background-image: url(https://i.ibb.co/PtdDW20/gatob.jpg);
+}
+#blu{
+    background-image: url(https://i.ibb.co/nwbqFL8/nudoa.jpg);
+}
+#po{    
+    background-image: url(https://i.ibb.co/9YGJq0Z/platob.jpg);
+}
+#bu{
+    background-image: url(https://i.ibb.co/R212t4N/buzoa.jpg);
+}
+#pan{
+    background-image: url(https://i.ibb.co/wc3Sjhz/rectoa.jpg);
+}
+.cardHome:hover {
+    opacity: 0.7;
+    transition: all ease 500ms;
+    border-radius: 20px;
+    cursor:pointer;
+    filter: grayscale(0.4);
+}
+.cardHome:hover p{
+    transform:scale(0.99);
+    transition: all ease-in-out 500ms;
+}
+.cardHome p{
+    background-color: rgba(255, 255, 255, 0.171);
+    color:  #443d3d;;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    text-shadow: 0 0 black;
+    font-size: 3em;
+    font-family: 'Cedarville Cursive', cursive;
+}
+.cardHome a{
+    width: 100%;
+}
+.h4Header{
+    text-align: right;
+    font-size: 2em;
+    margin: 2vh auto;
+    font-family: 'Cedarville Cursive', cursive;
+    color: black;
+    background-color: #bac5ce;
+    line-height: 45px;
+    padding: 4vh 2vw;
+    width: 100%;
+    margin-top: 3vh;
+    box-shadow:inset 0px 4px 15px 11px #FFFFFF;
 }

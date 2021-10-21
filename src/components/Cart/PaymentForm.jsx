@@ -8,9 +8,11 @@ import { useState } from "react";
 import { getFirestore } from "../../services/getFireBase";
 import firebase from 'firebase';
 import 'firebase/firestore';
+import { Link } from 'react-router-dom';
 
 
 const PaymentForm = () =>{
+    const { colorSeleccionado } = useCartContext()
     const{ cartList }= useCartContext() 
     const { cartTotalAmount } = useCartContext()
     const {emptyCart} = useCartContext()
@@ -19,6 +21,8 @@ const PaymentForm = () =>{
     //verificacion form
     const [ habilitar, setHabilitar] = useState([]);
     console.log(habilitar)
+    const [success, setSuccess] = useState(false)
+    const [ordenId, setOrdenId] = useState()
 
 const [formData, setFormData]= useState({
     name: '',
@@ -50,16 +54,12 @@ const handleOnSubmit = (e) => {
                 return {id, name, price}
             })
             }
-            
             //Agregar orden a la collection orders
             const db = getFirestore();
             db.collection('orders').add(order)
-            .then(resp => alert(`El nro de tu orden es: ${resp.id},  gracias por confiar en nosotros!`))
+            .then(resp => ((resp.id)? setOrdenId(resp.id)  : ""),setSuccess(true))
             .catch(error => console.log(error))
-            .finally(() => {
-                setFormData({inatialState})
-                emptyCart()
-            })
+            .finally(()=> setEnable(!enable))
             //Actualizar varios archivos en una sola const
         const itemsToUpdate = db.collection('productos').where(
             firebase.firestore.FieldPath.documentId(),'in', cartList.map(i=> i.item.id))
@@ -76,6 +76,19 @@ const handleOnSubmit = (e) => {
                     console.log('resultado batch: ', res)
                 })
             })
+            // {success ? (
+            //     <div id="miModal" class="modal">
+            //             <div class="modal-contenido">
+            //                 <Link exact to="/">
+            //                     <span>X</span>
+            //                 </Link>
+            //                 <h2>¡Gracias por confiar en nosotros!</h2>
+            //                 {/* <p>Nro.Orden: {resp.id}.</p> */}
+            //                 <p>Nos contactaremos con usted para coordinar el pedido</p>
+            //             </div>  
+            //     </div> 
+            // ) :''
+            // }
 
             //Crear collection en firebase
             // const db = getFirestore();
@@ -91,13 +104,18 @@ const handleOnSubmit = (e) => {
             // db.collection('productos').doc('6qwkEXbcTAuLFPEt2Laf').update
             // ({stock: 40})
             // .then(rta => console.log(rta))
-        }
+}
+
+const finalizar = () => {
+    setFormData({inatialState})
+    emptyCart()
+}
         //Volver al estado inicial el formData
-        const inatialState = {
-            name: '',
+const inatialState = {
+        name: '',
         email:'',
         phone:''
-    }
+}
     
 //VALIDACIONES FORMULARIO
 //EMAIL
@@ -212,13 +230,14 @@ const agregar = (valor) => {
 
 return (
         <>
+        {/* Si el boton esta habilitado se abre el form */}
             <button className="pagarButton" type="button" onClick={() => {setEnable(!enable);}}>
                 {enable ? 'Pagar' : 'Pagar'}
             </button>
                 {enable ? 
             ""
             : (
-                <main class="page payment-page">
+            <main class="page payment-page">
                 <section class="payment-form dark">
                 <div class="container">
                 <form 
@@ -230,8 +249,7 @@ return (
                     cartList.map(i =><>
                     <div className="item">
                     <span className="price">${(i.item.price)}</span>
-                    <p className="item-name">{(i.item.name)}</p>
-                    <p className="item-description">Cantidad: {i.count}</p>
+                    <p className="item-name">{(i.item.name)} { colorSeleccionado }</p>
                     </div> 
                     </>)}
                     <div className="total">Total:<span className="price">${cartTotalAmount()}</span></div>
@@ -253,7 +271,7 @@ return (
                     </div>
                     <div className="form-group col-sm-8">
                         <label for="card-number">Numero tarjeta</label>
-                        <input name="card" onChange={()=> correctCardNumber()}id="card-number" type="text" className="form-control" placeholder="Numero tarjeta" required/>
+                        <input name="card" onChange={()=> correctCardNumber()}id="card-number" type="text" className="form-control" placeholder="xxxx xxxx xxxx xxxx" required/>
                     </div>
                     <div className="form-group col-sm-4">
                         <label for="cvc">CVC</label>
@@ -265,7 +283,7 @@ return (
                     </div>
                     <div className="form-group col-sm-7">
                         <label for="celular">Celular</label>
-                        <input name="phone" value={formData.phone} onKeyDown={(evt)=> validarNumeros(evt)} onBlur={()=>celularCompleto()} id="celular" type="text" className="form-control" placeholder="Celular" required/>
+                        <input name="phone" value={formData.phone} onKeyDown={(evt)=> validarNumeros(evt)} onBlur={()=>celularCompleto()} id="celular" type="text" className="form-control" placeholder="xx xxxx xxxx" required/>
                     </div>
                     <div className="form-group col-sm-12">
                         <button disabled={Unable} type="submit" id="finishPayment" className="btn-primary btn-block">Finalizar Pago</button>
@@ -276,7 +294,22 @@ return (
                 </div>
                 </section>
                 </main>
-                )}
+            )}
+            {success ? (
+                <div className="Modal">
+                    <div className="ModalContainer">
+                    <Link exact to="/">
+                                <span onClick={finalizar}>X</span> 
+                                </Link>
+                                    <h2>¡Gracias por confiar en nosotros {formData.name}!</h2>
+                                <p>Tu nro. de orden:<b><i> {ordenId}.</i></b></p> 
+                                <p>Nos contactaremos a la brevedad vía Whatsapp para coordinar la entrega</p>
+                                <p>Si tenes alguna consulta con respecto al pedido, ¡no dudes en escribirnos!</p>
+                                <h3>Gracias por elegirnos...</h3>
+                                <h1 className="Firma"><b> Las Chuecas <i class="far fa-heart"></i></b></h1>
+                    </div>
+                </div>
+            ) : ""}
         </>
 );
 }

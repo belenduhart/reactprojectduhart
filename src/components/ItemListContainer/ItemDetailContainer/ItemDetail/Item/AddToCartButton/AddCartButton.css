@@ -3,8 +3,9 @@
 }
 
 .btn {
-    width: 14vw;
-    height: 10vh;
+
+    width: 300px;
+    height: 8vh;
     line-height: 50px;
     text-align: center;
     transform: translate(-50%, -50%);
@@ -15,8 +16,8 @@
 }
 
 .btn2 {
-    width: 11vw;
-    height: 9vh;
+    width: 150px;
+    height: 8vh;
     line-height: 50px;
     text-align: center;
     transform: translate(-50%, -50%);
@@ -108,14 +109,7 @@
     flex-direction: row;
 }
 
-
-@media only screen and (max-width:480px){
-    .btn2{
-        width: 40vw;
-    }
-    .btn{
-        width: 62vw;
-    }
+@media only screen and (max-width:100px){
     .flip-front, 
     .flip-back,
     .flip-front2, 

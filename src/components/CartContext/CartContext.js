@@ -43,7 +43,12 @@ export const CartContextProvider = ({defaultValue = [], children})=>{
     const cartTotalAmount = () =>{
         let total = 0;
         cartList.forEach (
-            item => { total += ((item.item.price) * (item.count))})
+            item => { 
+                (item.count <= item.item.stock)? 
+                total += ((item.item.price) * (item.count))
+            :
+            total += ((item.item.price) * (item.item.stock))
+        })
         return (total)
     }
 
@@ -51,9 +56,26 @@ export const CartContextProvider = ({defaultValue = [], children})=>{
     const cartTotalCount = () =>{
         let totalCount = 0;
         cartList.forEach (
-            item => { totalCount += (item.count)})
-        return (totalCount)
-    }
+            item => { 
+                (item.count <= item.item.stock)? 
+                totalCount += (item.count) 
+                : 
+                totalCount += (item.item.stock)
+            }
+        )
+    return(totalCount)
+}
+let color;
+const [colorSeleccionado, setcolorSeleccionado]= useState()
+const ColorPrenda = ()=>{
+    let getSelectValue;
+    getSelectValue =document.querySelector("#colorselector");
+    color =getSelectValue.options[getSelectValue.selectedIndex].text
+    setcolorSeleccionado(color)
+    console.log(color)
+}
+
+
 
     return(
             <>
@@ -63,7 +85,9 @@ export const CartContextProvider = ({defaultValue = [], children})=>{
             removeItem,
             emptyCart,
             cartTotalAmount,
-            cartTotalCount
+            cartTotalCount,
+            ColorPrenda,
+            colorSeleccionado
             }}>
                     {children}
             </CartContext.Provider>
