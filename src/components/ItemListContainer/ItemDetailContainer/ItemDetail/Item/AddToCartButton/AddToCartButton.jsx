@@ -8,10 +8,14 @@ import { useCartContext } from "../../../../../CartContext/CartContext";
 import {Link} from "react-router-dom";
 import { useState } from "react";
 
+import firebase from 'firebase';
+import 'firebase/firestore';
+import { getFirestore } from "../../../../../../services/getFireBase";
+
 
 
 const AddToCartButton = ({item, stock, count, onAdd})=>{
-
+    const {cartList} = useCartContext()
     const { addItem } = useCartContext()
     const {ColorPrenda} = useCartContext()
     const [inputType, setInputType] = useState('button')
@@ -60,7 +64,26 @@ const AddToCartButton = ({item, stock, count, onAdd})=>{
         const Intercambiar = ()=>{
             setInputType('input')
         }
-        
+        const ActualizarStock = () =>{
+                            const db = getFirestore();
+                const itemsToUpdate = db.collection('productos').where(
+                firebase.firestore.FieldPath.documentId(),'in', cartList.map(i=> i.item.id))
+                const batch = db.batch();
+                itemsToUpdate.get()
+                .then(collection=>{
+                    collection.docs.forEach(docSnapshot=>{
+                        batch.update(docSnapshot.ref, {
+                            stock:docSnapshot.data().stock - cartList.find
+                            (i=> i.item.id === docSnapshot.id).count
+                        })
+                    })
+                    batch.commit().then(res => {
+                        console.log('resultado batch: ', res)
+                    })
+                })
+            }
+
+
         const AgregarAlCarrito = () => {
             addItem(item, count)
             onAdd(count)
@@ -74,7 +97,7 @@ const AddToCartButton = ({item, stock, count, onAdd})=>{
         <>
         
         {(inputType === 'button') ?
-        <AddButton/> : <SuccessButton stock={stock} count={count}/> 
+        <AddButton/> : <SuccessButton onClick={ActualizarStock()}stock={stock} count={count}/> 
         }
         </>
     )

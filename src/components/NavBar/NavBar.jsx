@@ -9,6 +9,7 @@ import CarritoWidget from "../Cart/CarritoWidget/CarritoWidget";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import Buscador from "./Buscador/Buscador";
 
 const NavBar= () =>{
     return (
@@ -16,12 +17,13 @@ const NavBar= () =>{
         <marquee direction="down" scrolldelay="500">
             <span>Envío gratis a todo el país desde $5000.</span>
         </marquee>
-        <div className="ContenedorNavBar">
+        <div className="container ContenedorNavBar">
         <div className="NavBarContainer">
             {/* Logo de la marca */}
         <img className="NavBarLogo"
         src="https://i.ibb.co/sKqRN9Y/laschuecas.jpg"
         alt="Logo las chuecas"/>
+        <CarritoWidget />
             <Navbar className="NavBarra" expand="lg">
                 <Navbar.Toggle  aria-controls="navbarScroll" />
                 <Navbar.Collapse  id="navbarScroll">
@@ -63,7 +65,7 @@ const NavBar= () =>{
             </Navbar.Collapse>
             </Navbar>
             </div>
-            <CarritoWidget />
+            <Buscador/>
             </div>
         </>
     )
@@ -71,13 +73,3 @@ const NavBar= () =>{
 
 export default NavBar; 
 
-            /* Buscador para productos en la seccion Productos */
-            /* <Form style={{display:"flex", flexDirection:"row", width:"30vw", margin:"0vh auto"}}>
-                <FormControl
-                    type="search"
-                    placeholder="Buscar Producto..."
-                    className="mr-2"
-                    aria-label="Search"
-                />
-                <Button style={{backgroundColor:"#5ed8ac", border:"1px solid #5ed8ac"}}>Buscar</Button>
-                </Form>  */

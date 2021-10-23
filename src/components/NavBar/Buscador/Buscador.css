@@ -1,0 +1,17 @@
+.Buscador{
+    height: 39px ;
+    width: 200px ;
+}
+#BotonBuscar{
+    width: 100px;
+    line-height: 0px;
+}
+@media only screen and (max-width: 1000px){
+    .Buscador {
+        display: none;
+    }
+    #BotonBuscar{
+        display: none;
+    }
+}
+

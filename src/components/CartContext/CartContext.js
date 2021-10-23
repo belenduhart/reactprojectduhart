@@ -1,7 +1,9 @@
 import {React} from 'react';
 import {useState, createContext, useContext} from 'react';
 
-
+import firebase from 'firebase';
+import 'firebase/firestore';
+import { getFirestore } from '../../services/getFireBase';
 export const CartContext = createContext([]);
 
 export const useCartContext = () => useContext(CartContext)
@@ -9,6 +11,7 @@ export const useCartContext = () => useContext(CartContext)
 export const CartContextProvider = ({defaultValue = [], children})=>{
     const [cartList, setCartList] = useState(defaultValue);
 
+    
     //Agregar items al carrito
     const addItem = (item, count) => {
         //No se deben repetir los productos en el carrito, sino, sumar las cantidades.
@@ -20,21 +23,38 @@ export const CartContextProvider = ({defaultValue = [], children})=>{
             setCartList(cartList => [...cartList, {item, count}])
         }else{
             const previousCount = cartList[indexOfProduct].count
-
-            cartList.splice(indexOfProduct, 1)
-            setCartList([...cartList, { item, count: count + previousCount}])
+                cartList.splice(indexOfProduct, 1)
+                setCartList([...cartList, { item, count: count + previousCount}])
         }
         console.log(cartList)
     }
     //Eliminar un producto
     const removeItem = (id) =>{
+        ActualizarStockRemove()
         setCartList (cartList.filter(({item}) => item.id !== id))
     }
+
+    const ActualizarStockRemove = () =>{
+        const db = getFirestore();
+        const itemsToUpdate = db.collection('productos').where(
+        firebase.firestore.FieldPath.documentId(),'in', cartList.map(i=> i.item.id))
+        const batch = db.batch();
+        itemsToUpdate.get()
+        .then(collection=>{
+        collection.docs.forEach(docSnapshot=>{
+            batch.update(docSnapshot.ref, {
+                stock:docSnapshot.data().stock + cartList.find
+                (i=> i.item.id === docSnapshot.id).count
+            })
+        })
+        batch.commit().then(res => {
+            console.log('resultado batch: ', res)
+        })
+        })
+}
+    
     //Vaciar todo el carrito
     //Confirmar borrado
-
-
-
     const emptyCart = () =>{
         setCartList([])
     }
@@ -43,12 +63,11 @@ export const CartContextProvider = ({defaultValue = [], children})=>{
     const cartTotalAmount = () =>{
         let total = 0;
         cartList.forEach (
-            item => { 
-                (item.count <= item.item.stock)? 
+            item =>{
                 total += ((item.item.price) * (item.count))
-            :
-            total += ((item.item.price) * (item.item.stock))
-        })
+            }
+            
+        )
         return (total)
     }
 
@@ -57,14 +76,12 @@ export const CartContextProvider = ({defaultValue = [], children})=>{
         let totalCount = 0;
         cartList.forEach (
             item => { 
-                (item.count <= item.item.stock)? 
                 totalCount += (item.count) 
-                : 
-                totalCount += (item.item.stock)
             }
         )
     return(totalCount)
 }
+//Color seleccionado
 let color;
 const [colorSeleccionado, setcolorSeleccionado]= useState()
 const ColorPrenda = ()=>{
@@ -74,8 +91,6 @@ const ColorPrenda = ()=>{
     setcolorSeleccionado(color)
     console.log(color)
 }
-
-
 
     return(
             <>

@@ -106,9 +106,9 @@ const handleOnSubmit = (e) => {
             // .then(rta => console.log(rta))
 }
 
-const finalizar = () => {
+function finalizar () {
+    window.location.replace('/');
     setFormData({inatialState})
-    emptyCart()
 }
         //Volver al estado inicial el formData
 const inatialState = {
@@ -168,7 +168,9 @@ function correctCardNumber(){
     console.log ("cardNumber: " + cardNumber)
 }
 
+
 //FECHA VENCIMIENTO TARJETA
+const [mostrarError, setMostrarError] = useState("");
 const date = new Date();
 const mes = date.getMonth() + 1;
 const anio = date.getFullYear();
@@ -179,14 +181,22 @@ let vencimiento;
 function verificarVencimiento(){
     vencimientoMes = (document.querySelector("#MM").value);
     vencimientoAnio = (document.querySelector("#AA").value);
-    if((vencimientoMes > mes) && (vencimientoAnio >= anio)) {
+    if((vencimientoMes > mes && vencimientoMes <= 12 ) && (vencimientoAnio >= anio)) {
         agregar("vencimiento") 
+        setMostrarError("");
+        console.log(mostrarError)
     } else if((vencimientoMes < mes) && (vencimientoAnio > anio)){
         agregar("vencimiento") 
+        setMostrarError("");
+        console.log(mostrarError)
     }else if((vencimientoMes === mes) && (vencimientoAnio === anio)){
         agregar("vencimiento") 
-    }else {
+        setMostrarError("");
+        console.log(mostrarError)
+    }else if((vencimientoMes > 12) || (vencimientoAnio< anio)){
         setHabilitar (habilitar.filter(i => i !== "vencimiento")) 
+        setMostrarError("Vencimiento inválido");
+        console.log(mostrarError)
     }
     console.log("vencimiento" + vencimiento)
 }
@@ -267,6 +277,7 @@ return (
                         <input name="month" onChange={()=> verificarVencimiento()} id="MM" type="text" className="form-control" placeholder="MM"  required/>
                         <span className="date-separator"> / </span>
                         <input name="year" onChange={()=> verificarVencimiento()} id="AA" type="text" className="form-control" placeholder="AA"  required/>
+                        <p className="error" style={{color:"red"}} >{mostrarError}</p>
                         </div>
                     </div>
                     <div className="form-group col-sm-8">
@@ -283,7 +294,7 @@ return (
                     </div>
                     <div className="form-group col-sm-7">
                         <label for="celular">Celular</label>
-                        <input name="phone" value={formData.phone} onKeyDown={(evt)=> validarNumeros(evt)} onBlur={()=>celularCompleto()} id="celular" type="text" className="form-control" placeholder="xx xxxx xxxx" required/>
+                        <input name="phone" value={formData.phone} onKeyDown={(evt)=> validarNumeros(evt)} onChange={()=>celularCompleto()} id="celular" type="text" className="form-control" placeholder="xx xxxx xxxx" required/>
                     </div>
                     <div className="form-group col-sm-12">
                         <button disabled={Unable} type="submit" id="finishPayment" className="btn-primary btn-block">Finalizar Pago</button>
@@ -298,10 +309,8 @@ return (
             {success ? (
                 <div className="Modal">
                     <div className="ModalContainer">
-                    <Link exact to="/">
-                                <span onClick={finalizar}>X</span> 
-                                </Link>
-                                    <h2>¡Gracias por confiar en nosotros {formData.name}!</h2>
+                                <span onClick={finalizar} >X</span> 
+                                <h2>¡Gracias por confiar en nosotros {formData.name}!</h2>
                                 <p>Tu nro. de orden:<b><i> {ordenId}.</i></b></p> 
                                 <p>Nos contactaremos a la brevedad vía Whatsapp para coordinar la entrega</p>
                                 <p>Si tenes alguna consulta con respecto al pedido, ¡no dudes en escribirnos!</p>

@@ -34,17 +34,9 @@ const Cart = () => {
             <div className="CartProduct"> 
                 <img src={i.item.picture} alt="{i.item.name}" />
                 <p> {i.item.name} {colorSeleccionado}</p>
-                {
-                    (i.count > i.item.stock) ? 
-                    (<><p>Contamos solo con: {i.item.stock}</p>
-                    <p> Subtotal: $ {(i.item.price)*(i.item.stock)} </p></>)
-                    : 
-                    (<><p>Cantidad: {i.count}</p>
-                    <p> Subtotal: $ {(i.item.price)*(i.count)} </p>
-                    </>
-                    )
-                }
-                <div onClick= {()=> removeItem (i.item.id)}><i class="fas fa-trash-alt"  ></i></div>
+                <p>Cantidad: {i.count}</p>
+                <p> Subtotal: $ {(i.item.price)*(i.count)} </p>
+                <div onClick= {()=> removeItem (i.item.id)}><i class="fas fa-trash-alt"></i></div>
             </div>
             </>)
             )}
