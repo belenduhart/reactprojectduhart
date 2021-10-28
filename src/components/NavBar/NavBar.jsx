@@ -63,7 +63,7 @@ const NavBar= () =>{
             </Navbar.Collapse>
             </Navbar>
             </div>
-            <Buscador/>
+            {/* <Buscador/> */}
             </div>
         </>
     )
