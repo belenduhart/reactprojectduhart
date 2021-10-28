@@ -21,7 +21,6 @@ const [MostrarBusqueda, setMostrarBusqueda] = useState(false)
     function  Buscar ()  {
         busqueda = document.querySelector(".Buscador").value;
         busqueda = busqueda.replace(/\b\w/g, l => l.toUpperCase())
-        console.log(busqueda)
         const db = getFirestore();
         db.collection('productos')
         .get()
@@ -31,16 +30,13 @@ const [MostrarBusqueda, setMostrarBusqueda] = useState(false)
                         if ((doc.data().name.includes(busqueda)) === true)
                         { 
                             ItemBuscar.push(doc.data())
-                            console.log(ItemBuscar)
                             setBuscado(ItemBuscar)
-                            // console.log(Buscado)
                         }
                 })
             })
         .catch(error=>console.log(error))
         .finally(console.log(Buscado))    
         }
-        // console.log(Buscado)
     const mostrarDiv = () =>{
         setMostrarBusqueda(true)
     }

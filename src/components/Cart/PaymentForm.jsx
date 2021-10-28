@@ -18,7 +18,6 @@ const PaymentForm = () =>{
     const [enable, setEnable] = useState(true);
     //verificacion form
     const [ habilitar, setHabilitar] = useState([]);
-    console.log(habilitar)
     const [success, setSuccess] = useState(false)
     const [ordenId, setOrdenId] = useState()
 
@@ -78,7 +77,6 @@ const validarEmail = () => {
         setHabilitar (habilitar.filter(i => i !== "texto")) 
     } 
     }
-    console.log("texto: " + texto)
 } 
 
 //Valores numericos
@@ -101,7 +99,6 @@ function celularCompleto(){
     }else{
         setHabilitar (habilitar.filter(i => i !== "celular")) 
     }
-    console.log("nroCelu: " + celular)
 }
 
 //NRO TARJETA COMPLETO 16 DIGITOS
@@ -113,7 +110,6 @@ function correctCardNumber(){
     }else{
         setHabilitar (habilitar.filter(i => i !== "cardNumber")) 
     }
-    console.log ("cardNumber: " + cardNumber)
 }
 
 //FECHA VENCIMIENTO TARJETA
@@ -121,7 +117,6 @@ const [mostrarError, setMostrarError] = useState("");
 const date = new Date();
 const mes = date.getMonth() + 1;
 const anio = date.getFullYear();
-console.log(date)
 let vencimientoMes;
 let vencimientoAnio;
 let vencimiento;
@@ -131,21 +126,16 @@ function verificarVencimiento(){
     if((vencimientoMes > mes && vencimientoMes <= 12 ) && (vencimientoAnio >= anio)) {
         agregar("vencimiento") 
         setMostrarError("");
-        console.log(mostrarError)
     } else if((vencimientoMes < mes) && (vencimientoAnio > anio)){
         agregar("vencimiento") 
         setMostrarError("");
-        console.log(mostrarError)
     }else if((vencimientoMes === mes) && (vencimientoAnio === anio)){
         agregar("vencimiento") 
         setMostrarError("");
-        console.log(mostrarError)
     }else if((vencimientoMes > 12) || (vencimientoAnio< anio)){
         setHabilitar (habilitar.filter(i => i !== "vencimiento")) 
         setMostrarError("Vencimiento inválido");
-        console.log(mostrarError)
     }
-    console.log("vencimiento" + vencimiento)
 }
 
 //VERIFICAR QUE PONGA ALGUN NOMBRE
@@ -157,7 +147,6 @@ function verificarNombre(){
     }else{
         setHabilitar (habilitar.filter(i => i !== "nombre")) 
     }
-    console.log("nombre:" + nombre)
 }
 
 //HABILITAR BOTON DE PAGAR CUANDO TODOS LOS CAMPOS ESTEN COMPLETOS
@@ -169,7 +158,6 @@ cardNumber = (habilitar.includes("cardNumber"));
 let Unable = true;
 if ((nombre === true) && (vencimiento === true) && (texto === true) && (celular === true) && (cardNumber === true)){
             Unable = false;
-            console.log(Unable)
 }
 //No agregar datos repetidos a "habilitar[]"
 const agregar = (valor) => {

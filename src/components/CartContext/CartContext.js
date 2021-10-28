@@ -41,7 +41,6 @@ export const CartContextProvider = ({defaultValue = [], children})=>{
             })
         })
         batch.commit().then(res => {
-            console.log('resultado batch: ', res)
         })
         })
 }

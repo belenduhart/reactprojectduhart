@@ -12,9 +12,7 @@ import { Link } from "react-router-dom";
 const ItemCounter = ({producto})=>{
     const [cantidadProductos, setCantidadProductos] = useState(0)
     const onAdd = (cant) => {
-        console.log("Se agregaron "+ cant + " productos")
         setCantidadProductos(cant)
-        console.log(cantidadProductos)
     }
     let stock = (producto.stock);
     const [count, setCount] = useState(1);
