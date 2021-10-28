@@ -1,4 +1,3 @@
-// Icono del carrito me lleva al carrito "CART"
 //style
 import './CarritoWidget.css';
 

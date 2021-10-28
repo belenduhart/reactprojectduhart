@@ -34,11 +34,7 @@ const handleOnChange = (e)=> {
         [e.target.name]: e.target.value
     })
 }
-console.log(formData)
 
-    // const orderSuccess = () => {
-    // }
-    //Funcion se activa al onClick de un type submit
 const handleOnSubmit = (e) => {
     e.preventDefault();
     const order = {
@@ -52,63 +48,17 @@ const handleOnSubmit = (e) => {
                 return {id, name, price}
             })
             }
-            //Agregar orden a la collection orders
             const db = getFirestore();
             db.collection('orders').add(order)
             .then(resp => ((resp.id)? setOrdenId(resp.id)  : ""),setSuccess(true))
             .catch(error => console.log(error))
             .finally(()=> setEnable(!enable))
-            //Actualizar varios archivos en una sola const (Actualizo el stock)
-        // const itemsToUpdate = db.collection('productos').where(
-        //     firebase.firestore.FieldPath.documentId(),'in', cartList.map(i=> i.item.id))
-        //     const batch = db.batch();
-        //     itemsToUpdate.get()
-        //     .then(collection=>{
-        //         collection.docs.forEach(docSnapshot=>{
-        //             batch.update(docSnapshot.ref, {
-        //                 stock:docSnapshot.data().stock - cartList.find
-        //                 (i=> i.item.id === docSnapshot.id).count
-        //             })
-        //         })
-        //         batch.commit().then(res => {
-        //             console.log('resultado batch: ', res)
-        //         })
-        //     })
-            // {success ? (
-            //     <div id="miModal" class="modal">
-            //             <div class="modal-contenido">
-            //                 <Link exact to="/">
-            //                     <span>X</span>
-            //                 </Link>
-            //                 <h2>¡Gracias por confiar en nosotros!</h2>
-            //                 {/* <p>Nro.Orden: {resp.id}.</p> */}
-            //                 <p>Nos contactaremos con usted para coordinar el pedido</p>
-            //             </div>  
-            //     </div> 
-            // ) :''
-            // }
-
-            //Crear collection en firebase
-            // const db = getFirestore();
-            // db.collection('orders').add(order)
-            // .then(resp => console.log(resp.id))
-            // .catch(error => console.log(error))
-            // .finally(() => {
-                //     setFormData({inatialState})
-                //     emptyCart()
-                // })
-            //Actualizar el stock sabiendo el ID
-            // const db = getFirestore();
-            // db.collection('productos').doc('6qwkEXbcTAuLFPEt2Laf').update
-            // ({stock: 40})
-            // .then(rta => console.log(rta))
 }
 
 function finalizar () {
     window.location.replace('/');
     setFormData({inatialState})
 }
-        //Volver al estado inicial el formData
 const inatialState = {
         name: '',
         email:'',
@@ -165,7 +115,6 @@ function correctCardNumber(){
     }
     console.log ("cardNumber: " + cardNumber)
 }
-
 
 //FECHA VENCIMIENTO TARJETA
 const [mostrarError, setMostrarError] = useState("");
@@ -238,7 +187,6 @@ const agregar = (valor) => {
 
 return (
         <>
-        {/* Si el boton esta habilitado se abre el form */}
             <button className="pagarButton" type="button" onClick={() => {setEnable(!enable);}}>
                 {enable ? 'Pagar' : 'Pagar'}
             </button>

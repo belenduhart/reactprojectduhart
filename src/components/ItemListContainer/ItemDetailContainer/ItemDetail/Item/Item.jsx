@@ -3,7 +3,6 @@ import "./Item.css";
 
 //Components
 import ItemCounter from "./ItemCounter/ItemCounter";
-// import ObtenerTarjetas from "../../../Mock/Mock";
 
 //Utilities
 import { useParams } from "react-router";
@@ -27,20 +26,6 @@ const Item = ()=>{
         
     }, [id]);
 
-    
-    //Sin firebase
-        // if (id){
-        //     ObtenerTarjetas
-        //     .then( respuesta => {
-        //             setProductoComprar(respuesta.find( producto => producto.id === id))
-        //         })
-        //     .catch(error => console.log(error))
-        //     .finally(()=> setLoading(false))
-        //     }
-        // }, [id]);
-        // console.log(id);
-        // console.log(productoComprar)
-
     return (
         <>
         {loading ?
@@ -59,7 +44,6 @@ const Item = ()=>{
         : 
         <div className="cardStyle2">
         <div className="counterCointainer">
-        {/* <img className="cardImage2" src={productoComprar.picture} alt={productoComprar.name} /> */}
         <div id="carouselExampleControls" className="carousel slide carouitem"  data-bs-pause="hover" data-bs-interval="false">
                 <div id= "carouselProductos" className="carousel-inner">
                 <div  className="carousel-item active" data-bs-ride="">
@@ -84,8 +68,6 @@ const Item = ()=>{
         <p className="tituloProducto">{productoComprar.name}</p>
         </div>
         <div className="counterCointainer">
-       
-            {/* Seleccion de colores a desarrollar proximamente */}
             <div className="selectores">
             <div className="sizeSelector"> 
             Color :
@@ -115,33 +97,4 @@ const Item = ()=>{
     )}
 
 
-
-
-
 export default Item;
-
-// const Item = ({producto})=>{
-//     const [productoComprar, setProductoComprar] = useState({});
-//     const {id}=useParams();
-    
-//     useEffect(() => {
-//         if (id){
-//             ObtenerTarjetas
-//             .then( respuesta => {
-//                     setProductoComprar(respuesta.find( producto => producto.id === id))
-//                 })
-//             .catch(error => console.log(error))
-//             }
-//         }, [id]);
-//         console.log(id);
-//         console.log(productoComprar)
-        
-
-
-//     return (
-//         <>
-//         <Counter producto ={productoComprar}/>
-//         </>
-//     )
-
-// }

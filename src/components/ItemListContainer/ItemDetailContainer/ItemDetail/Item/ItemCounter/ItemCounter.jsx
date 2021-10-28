@@ -33,16 +33,6 @@ const ItemCounter = ({producto})=>{
             setCount(count - 1)
         }
     }
-    
-    //Obtencion colores para el selector
-    // const ColorSelector = ({producto}) =>{
-    //     return(
-    //         <>
-    //         {producto.forEach(producto =>
-    //         <option value="{producto.color.name}">{producto.color.name}</option>)}
-    //         </>
-    //     )
-    // }
 
 return (
     <>

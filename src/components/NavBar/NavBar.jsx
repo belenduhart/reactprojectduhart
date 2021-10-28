@@ -19,7 +19,6 @@ const NavBar= () =>{
         </marquee>
         <div className="container ContenedorNavBar">
         <div className="NavBarContainer">
-            {/* Logo de la marca */}
         <img className="NavBarLogo"
         src="https://i.ibb.co/sKqRN9Y/laschuecas.jpg"
         alt="Logo las chuecas"/>
@@ -61,7 +60,6 @@ const NavBar= () =>{
                     </Link>
                 </NavDropdown>
                 </Nav>
-            {/* Icono del carrito */}
             </Navbar.Collapse>
             </Navbar>
             </div>

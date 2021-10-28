@@ -78,7 +78,6 @@ const AddToCartButton = ({item, stock, count, onAdd})=>{
                         })
                     })
                     batch.commit().then(res => {
-                        console.log('resultado batch: ', res)
                     })
                 })
             }
@@ -89,9 +88,7 @@ const AddToCartButton = ({item, stock, count, onAdd})=>{
             onAdd(count)
             Intercambiar()
             ColorPrenda()
-            //Item added to cartList
         }
-
 
     return(
         <>

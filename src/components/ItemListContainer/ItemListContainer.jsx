@@ -15,9 +15,6 @@ const [loading, setLoading] = useState(true);
 const {idCategoria}=useParams();
 
 useEffect(() => {
-    
-    //Funciones para firestore
-    //Obtengo la coleccion
     if(idCategoria){
         const dbQuery = getFirestore();
         dbQuery.collection('productos').where('categoria', '==', idCategoria).get()
@@ -38,25 +35,6 @@ useEffect(() => {
 
     
 }, [idCategoria])
-
-console.log(ProductsArray)
-    //Funciones sin usar Firestore
-//     if (idCategoria){
-//         ObtenerTarjetas
-//         .then(respuesta => {
-//         setProductos(respuesta.filter( product => product.categoria === idCategoria))})
-//         .catch(error => console.log(error))
-//         .finally(()=> setLoading(false))
-//     } else {
-//         ObtenerTarjetas
-//         .then(respuesta =>{
-//         setProductos(respuesta)})
-//         .catch(error => console.log(error))
-//         .finally(()=> setLoading(false))
-//     }
-// }, [idCategoria]);
-// console.log(idCategoria);
-// console.log(ProductsArray);
 
 return(
     <>
