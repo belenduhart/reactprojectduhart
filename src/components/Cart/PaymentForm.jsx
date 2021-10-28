@@ -8,14 +8,12 @@ import { useState } from "react";
 import { getFirestore } from "../../services/getFireBase";
 import firebase from 'firebase';
 import 'firebase/firestore';
-import { Link } from 'react-router-dom';
 
 
 const PaymentForm = () =>{
     const { colorSeleccionado } = useCartContext()
     const{ cartList }= useCartContext() 
     const { cartTotalAmount } = useCartContext()
-    const {emptyCart} = useCartContext()
     //Mostrar form
     const [enable, setEnable] = useState(true);
     //verificacion form
@@ -60,22 +58,22 @@ const handleOnSubmit = (e) => {
             .then(resp => ((resp.id)? setOrdenId(resp.id)  : ""),setSuccess(true))
             .catch(error => console.log(error))
             .finally(()=> setEnable(!enable))
-            //Actualizar varios archivos en una sola const
-        const itemsToUpdate = db.collection('productos').where(
-            firebase.firestore.FieldPath.documentId(),'in', cartList.map(i=> i.item.id))
-            const batch = db.batch();
-            itemsToUpdate.get()
-            .then(collection=>{
-                collection.docs.forEach(docSnapshot=>{
-                    batch.update(docSnapshot.ref, {
-                        stock:docSnapshot.data().stock - cartList.find
-                        (i=> i.item.id === docSnapshot.id).count
-                    })
-                })
-                batch.commit().then(res => {
-                    console.log('resultado batch: ', res)
-                })
-            })
+            //Actualizar varios archivos en una sola const (Actualizo el stock)
+        // const itemsToUpdate = db.collection('productos').where(
+        //     firebase.firestore.FieldPath.documentId(),'in', cartList.map(i=> i.item.id))
+        //     const batch = db.batch();
+        //     itemsToUpdate.get()
+        //     .then(collection=>{
+        //         collection.docs.forEach(docSnapshot=>{
+        //             batch.update(docSnapshot.ref, {
+        //                 stock:docSnapshot.data().stock - cartList.find
+        //                 (i=> i.item.id === docSnapshot.id).count
+        //             })
+        //         })
+        //         batch.commit().then(res => {
+        //             console.log('resultado batch: ', res)
+        //         })
+        //     })
             // {success ? (
             //     <div id="miModal" class="modal">
             //             <div class="modal-contenido">

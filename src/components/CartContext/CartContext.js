@@ -11,7 +11,6 @@ export const useCartContext = () => useContext(CartContext)
 export const CartContextProvider = ({defaultValue = [], children})=>{
     const [cartList, setCartList] = useState(defaultValue);
 
-    
     //Agregar items al carrito
     const addItem = (item, count) => {
         //No se deben repetir los productos en el carrito, sino, sumar las cantidades.
@@ -102,7 +101,7 @@ const ColorPrenda = ()=>{
             cartTotalAmount,
             cartTotalCount,
             ColorPrenda,
-            colorSeleccionado
+            colorSeleccionado,
             }}>
                     {children}
             </CartContext.Provider>

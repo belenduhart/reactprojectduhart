@@ -6,6 +6,30 @@
     width: 100px;
     line-height: 0px;
 }
+#popUpBuscado{
+    position: absolute;
+    top: 100px;
+    right: auto;
+    background-color: white;
+    border: 4px solid lightblue;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding: 1vh 1vw;
+    z-index: 989;
+}
+.cerrarBusqueda{
+    color: white;
+    background-color: red;
+    padding: 1vh 1vw;
+    border-radius: 10px;
+    position: absolute;
+    top: 3%;
+    right: 1%;
+    cursor: pointer;
+}
 @media only screen and (max-width: 1000px){
     .Buscador {
         display: none;
