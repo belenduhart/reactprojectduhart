@@ -45,6 +45,6 @@ After the repository was cloned and tools installed/configured just follow these
 -Then write on the console the command **'npm start'** and after a few minutes the browser will be opened with this link: http://localhost:3000, where you can see and run the app. <br>
 
 
-<img src="https://loom.com/share/e1504f06347043878a4959e83956b0e8">
+<video src="https://loom.com/share/e1504f06347043878a4959e83956b0e8">
           
         
