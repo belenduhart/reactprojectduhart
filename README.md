@@ -17,12 +17,6 @@ Desarrollo de una nueva app E-commerce para la marca  de indumentaria **"Las Chu
  + React Js
 
 ## Demo
-> Al estar aún en pleno desarrollo no se encuentra disponible un link al Demo de la app pero puedes comenzar a correr la misma clonando el repositorio en tu editor de codigo (_modo development_) y luego en tu navegador abrir la siguiente URL: <br>
-[http://localhost:3000].
-
-> As you can see the app is still "under construction" is not possible to give you an app demo's link, but if you want to run it just clone the repository on your code editor (_development mood_) and then open the following link on your browser:<br>
-[http://localhost:3000].
-
 ## Instalación/Installation
 Para ello debe asegurarse de contar con:<br>
 -_Editor de código_, como el Visual Studio Code.<br>
@@ -43,3 +37,6 @@ Luego de clonar el repositorio e instalar/configurar todas las herramientas nece
 After the repository was cloned and tools installed/configured just follow these steps: <br>
 -Open the terminal/power shell, write **'npm install'** on it. If everything go well you should see on the left of the screen with the others app's files, a folder called _node_modules_ and a file called _package-lock.json_ as well. <br>
 -Then write on the console the command **'npm start'** and after a few minutes the browser will be opened with this link: http://localhost:3000, where you can see and run the app. <br>
+
+
+
