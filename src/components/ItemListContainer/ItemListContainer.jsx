@@ -1,6 +1,6 @@
 //Components
 import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer";
-// import ObtenerTarjetas from "./Mock/Mock";
+import Loading from "../Loading/Loading";
 
 //Utilities
 import { useState, useEffect } from "react";
@@ -40,16 +40,8 @@ return(
     <>
     {loading ? 
         <div>
-        <h4> Cargando Productos</h4>
-        <div style={{marginLeft:"1vw"}}class="spinner-grow text-muted"></div>
-        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-primary"></div>
-        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-success"></div>
-        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-info"></div>
-        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-warning"></div>
-        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-danger"></div>
-        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-secondary"></div>
-        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-dark"></div>
-        <div  style={{marginLeft:"1vw"}} class="spinner-grow text-light"></div>
+        <h4 style={{textAlign:"center"}}> Cargando Productos</h4>
+        <Loading/>  
         </div>
         : 
         <ItemDetailContainer product={ProductsArray}/>

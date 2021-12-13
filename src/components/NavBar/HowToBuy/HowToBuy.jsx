@@ -18,7 +18,7 @@ const HowToBuy = () =>{
                 </li>
             </ul>
             <h1 className="BuyTittle"> ¡Gracias por confiar en nosotros! </h1>
-            <h1 className="Firma"><b> Las Chuecas <i class="far fa-heart"></i></b></h1>
+            <h1 className="Firma"><b> Las Chuecas <i className="far fa-heart"></i></b></h1>
         </div>
         </>
     )

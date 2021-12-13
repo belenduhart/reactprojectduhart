@@ -16,30 +16,27 @@ const [MostrarBusqueda, setMostrarBusqueda] = useState(false)
 
 
 
-
-
-    function  Buscar ()  {
+    async function  Buscar ()  {
         busqueda = document.querySelector(".Buscador").value;
         busqueda = busqueda.replace(/\b\w/g, l => l.toUpperCase())
         const db = getFirestore();
-        db.collection('productos')
-        .get()
-        .then(querySnapshot => 
-            {
-                querySnapshot.forEach(doc => {
-                        if ((doc.data().name.includes(busqueda)) === true)
+        let productRef = db.collection ('productos')
+        let allproducts = await productRef.get();
+        for (const doc of allproducts.docs){
+            
+            if ((doc.data().name.includes(busqueda)) === true)
                         { 
                             ItemBuscar.push(doc.data())
-                            setBuscado(ItemBuscar)
+                            const dataArr = new Set(ItemBuscar)
+                            let search = [...dataArr]
+                            console.log(search)
+                            setBuscado(search)
+                            setMostrarBusqueda(true)
                         }
-                })
-            })
-        .catch(error=>console.log(error))
-        .finally(console.log(Buscado))    
         }
-    const mostrarDiv = () =>{
-        setMostrarBusqueda(true)
-    }
+        
+        }
+    
     const borrarInput = () =>{
         document.querySelector(".Buscador").value = ""
     }
@@ -61,29 +58,28 @@ const [MostrarBusqueda, setMostrarBusqueda] = useState(false)
                     className="Buscador"
                     aria-label="Search"
                     onClick={resetearBuscador}
-                    onBlur = {Buscar}
                 />
-                <Button onClick={mostrarDiv}id="BotonBuscar">Buscar</Button>
+                <Button onClick={()=>Buscar()} id="BotonBuscar">Buscar</Button>
             {
             MostrarBusqueda ? ( <>
             <div id="popUpBuscado">
                     <div className="cerrarBusqueda" onClick={cerrarBusqueda}>X</div>
-                    {ItemBuscar.map(item => <><div class="card">
-                        <div class="image">
-                            <img class="image" src={item.picture[0]}/>
+                    {Buscado.map(item => <><div className="card">
+                        <div key={item.id} className="image">
+                            <img className="image" src={item.picture[0]}/>
                         </div>
-                        <div class="details">
-                            <div class="center">
+                        <div className="details">
+                            <div className="center">
                             <h1>{item.name}</h1>
-                            <ul>
+                            {/* <ul>
                             <li> 
-                            <Link to={`/detalle/`} >
+                            <Link to={`/categoria/${item.categoria}`} >
                                 <button className="buttonDetail" type="button" onClick={() => {setShow(!show);}}>
                                     {show ? 'Mostrar Detalles' : 'Yendo al Producto'}
                                 </button>
                                 </Link>
                             </li>
-                            </ul>
+                            </ul> */}
                             </div>
                         </div>
                     </div>

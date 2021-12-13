@@ -2,19 +2,13 @@
 //Style
 import "./Cart.css"
 
-//Utilities
-import { Link } from "react-router-dom";
-
 //Components
 import { useCartContext } from "../CartContext/CartContext";
-import PaymentForm from "./PaymentForm";
+import EmptyCart from "./EmptyCart/EmptyCart";
+import {FilledCart, TotalFilledCart} from "./FilledCart/FilledCart";
 
 const Cart = () => {
     const{ cartList }= useCartContext() 
-    const { removeItem } = useCartContext()
-    const { colorSeleccionado } = useCartContext()
-    const { cartTotalAmount } = useCartContext()
-    const {emptyCart} = useCartContext()
 
     return(
         <>
@@ -24,32 +18,14 @@ const Cart = () => {
             : ""
         }
         {
-            (cartList.length === 0 )? <>
-            <h1 className="emptyCart"> ¡Ups! <br/> parece que no agregaste nada al carrito todavía</h1>
-            <Link exact to="/categoria">
-            <button className="buttonStyle3"> ¡Comenzar a comprar! </button>
-            </Link>
-            </> :
-            (cartList.map(i => <>
-            <div className="CartProduct"> 
-                <img src={i.item.picture} alt="{i.item.name}" />
-                <p> {i.item.name} {colorSeleccionado}</p>
-                <p>Cantidad: {i.count}</p>
-                <p> Subtotal: $ {(i.item.price)*(i.count)} </p>
-                <div onClick= {()=> removeItem (i.item.id)}><i class="fas fa-trash-alt"></i></div>
-            </div>
-            </>)
-            )}
+            (cartList.length === 0 )? 
+            <EmptyCart/> :
+            <FilledCart/>
+}
         {
-            (cartList.length !== 0)? <> 
-            <div className="containerTotal">
-            <div className="totalAmount">Total: ${cartTotalAmount()} </div> 
-            <div className="botonesFinalesDiv">
-                <button className="vaciarButton" onClick={() => emptyCart()}>Vaciar Carrito</button>
-                <PaymentForm/>
-            </div>
-            </div>
-            </>: ""
+            (cartList.length !== 0)?
+            <TotalFilledCart/>
+            : ""
         }
         </>
     )

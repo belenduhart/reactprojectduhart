@@ -10,9 +10,9 @@ const Footer = () =>{
                     </p>
                 </div>
                 <div>
-                    <a href="#"><i id="redes" class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i id="redes" class="fab fa-instagram"></i></a>
-                    <a href="#"> <i id="redes" class="fab fa-whatsapp"></i></a>
+                    <a href="www.facebook.com"><i id="redes" className="fab fa-facebook-f"></i></a>
+                    <a href="www.instagram.com"><i id="redes" className="fab fa-instagram"></i></a>
+                    <a href="www.whatsapweb.com"> <i id="redes" className="fab fa-whatsapp"></i></a>
                 </div>
             </section>
         </>

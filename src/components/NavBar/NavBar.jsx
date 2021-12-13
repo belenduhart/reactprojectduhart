@@ -28,7 +28,6 @@ const NavBar= () =>{
                 <Navbar.Collapse  id="navbarScroll">
                 <Nav 
                 className="mr-auto my-2 my-lg-0"
-                style={{ maxHeight: '100px' , width:"100%"}}
                 navbarScroll
                 >
                 <Link exact to="/">
@@ -63,7 +62,7 @@ const NavBar= () =>{
             </Navbar.Collapse>
             </Navbar>
             </div>
-            {/* <Buscador/> */}
+            <Buscador/>
             </div>
         </>
     )

@@ -4,12 +4,12 @@ import "./ItemDetailContainer.css"
 const ItemDetailContainer = ({product})=>{
         return(
             product.map(product=>
-                <div class="card">
-                    <div class="image">
-                        <img class="image" src={product.picture[0]}/>
+                <div className="card">
+                    <div className="image">
+                        <img className="image" src={product.picture[0]}/>
                     </div>
-                <div class="details">
-                <div class="center">
+                <div className="details">
+                <div className="center">
                     <h1>{product.name}</h1>
                 <ul>
                     <li> 

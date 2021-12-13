@@ -3,6 +3,7 @@ import "./Item.css";
 
 //Components
 import ItemCounter from "./ItemCounter/ItemCounter";
+import Loading from "../../../../Loading/Loading";
 
 //Utilities
 import { useParams } from "react-router";
@@ -10,7 +11,7 @@ import { useEffect, useState } from "react";
 import { getFirestore } from "../../../../../services/getFireBase";
 
 const Item = ()=>{
-  
+
     const [productoComprar, setProductoComprar] = useState({});
     const {id}=useParams();
     const [loading, setLoading] = useState(true);
@@ -29,32 +30,20 @@ const Item = ()=>{
     return (
         <>
         {loading ?
-                <div>
+                <div sytle={{height:"100vh"}}>
+                <Loading/>
                 <h4> Cargando Productos</h4>
-                <div style={{marginLeft:"1vw"}}class="spinner-grow text-muted"></div>
-                <div  style={{marginLeft:"1vw"}} class="spinner-grow text-primary"></div>
-                <div  style={{marginLeft:"1vw"}} class="spinner-grow text-success"></div>
-                <div  style={{marginLeft:"1vw"}} class="spinner-grow text-info"></div>
-                <div  style={{marginLeft:"1vw"}} class="spinner-grow text-warning"></div>
-                <div  style={{marginLeft:"1vw"}} class="spinner-grow text-danger"></div>
-                <div  style={{marginLeft:"1vw"}} class="spinner-grow text-secondary"></div>
-                <div  style={{marginLeft:"1vw"}} class="spinner-grow text-dark"></div>
-                <div  style={{marginLeft:"1vw"}} class="spinner-grow text-light"></div>
+                <Loading/>
                 </div>
         : 
         <div className="cardStyle2">
         <div className="counterCointainer">
         <div id="carouselExampleControls" className="carousel slide carouitem"  data-bs-pause="hover" data-bs-interval="false">
                 <div id= "carouselProductos" className="carousel-inner">
-                <div  className="carousel-item active" data-bs-ride="">
-                <img src={productoComprar.picture[0]} id="cardImage2" className="d-block" alt={productoComprar.name} />
-                </div>
-                <div className="carousel-item">
-                <img src={productoComprar.picture[1]} id="cardImage2" className="d-block" alt={productoComprar.name} />
-                </div>
-                <div className="carousel-item">
-                <img src={productoComprar.picture[2]} id="cardImage2" className="d-block" alt={productoComprar.name} />
-                </div>
+                    {productoComprar.picture.map((pic,pos)=> <div  
+                    className={pos === 0 ? "carousel-item active" : "carousel-item"} data-bs-ride="">
+                <img src={pic} id="cardImage2" className="d-block" alt={pic} />
+                </div>)}
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                 <span className="carousel-control-prev-icon"  id="iconPrevNext" aria-hidden="true"></span>
@@ -72,16 +61,13 @@ const Item = ()=>{
             <div className="sizeSelector"> 
             Color :
             <select className="colorselector" id="colorselector" name="Colores" selected>
-                <option className="opciones" value={productoComprar.colores[0]}> {productoComprar.colores[0]} </option>
-                <option className="opciones" value={productoComprar.colores[1]}> {productoComprar.colores[1]} </option>
-                <option className="opciones" value={productoComprar.colores[2]}> {productoComprar.colores[2]} </option>
+                {productoComprar.colores.map(el=> <option className="opciones" value={el}>{el}</option>)}
             </select>
             </div>
             <div className="sizeSelector">
             Talle:
             <select className="sizeselector" name="Talle">
-                <option value="none" selected> -- </option>
-                <option value="s"> S </option>
+                <option value="s" selected> S </option>
                 <option value="m"> M </option>
                 <option value="l"> L </option>
                 <option value="xl"> XL </option>

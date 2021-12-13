@@ -53,6 +53,9 @@
     box-shadow: 5px 5px 15px 5px #000000;
 }
 @media only screen and (max-width: 700px){
+    .ModalContainer{
+        width: 95vw;
+    }
     .CartProduct{
         flex-direction: column;
         justify-content: center;
@@ -293,10 +296,11 @@
     text-align:center;
     padding: 1vh 1vw;
     margin:1vh 45%;
-    width: 200px;
+   /* width: 200px; */
 }
 
 @media (min-width: 576px) {
+
 	.payment-form .title {
 		font-size: 1.2em; 
 	}
@@ -310,11 +314,11 @@
 	}
 
 	.payment-form .products .price {
-    	font-size: 1em; 
+        font-size: 1em; 
 	}
 
     .payment-form .card-details {
-    	padding: 40px 40px 30px; 
+        padding: 40px 40px 30px; 
     }
 }
 
