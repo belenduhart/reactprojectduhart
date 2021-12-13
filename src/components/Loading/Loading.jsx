@@ -1,8 +1,14 @@
+//Loading
 import React from "react";
+
+//Styles
+import './Loading.css'
 
 const Loading = () =>{
     return(
         <>
+                    <div className="loadingContainer">
+                    <div>Cargando Productos</div>
                     <div  style={{marginLeft:"1vw"}}className="spinner-grow text-muted"></div>
                     <div  style={{marginLeft:"1vw"}} className="spinner-grow text-primary"></div>
                     <div  style={{marginLeft:"1vw"}} className="spinner-grow text-success"></div>
@@ -12,6 +18,7 @@ const Loading = () =>{
                     <div  style={{marginLeft:"1vw"}} className="spinner-grow text-secondary"></div>
                     <div  style={{marginLeft:"1vw"}} className="spinner-grow text-dark"></div>
                     <div  style={{marginLeft:"1vw"}} className="spinner-grow text-light"></div>
+                    </div>
         </>
     )
     

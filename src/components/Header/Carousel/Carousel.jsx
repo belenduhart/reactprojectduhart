@@ -1,4 +1,7 @@
+//Carrousel header
 import React from "react";
+
+//Styles
 import '../Header.css';
 
 const CarouselChuekas = () => {

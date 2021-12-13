@@ -1,5 +1,10 @@
-// Imagen del home de landingpage
+// Header
+import React from 'react';
+
+//Styles
 import './Header.css';
+
+//Components
 import CarouselChuekas from './Carousel/Carousel';
 import CategoriesCards from './CategoriesCards/CategoriesCards';
 

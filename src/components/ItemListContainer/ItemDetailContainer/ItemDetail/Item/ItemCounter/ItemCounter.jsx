@@ -1,3 +1,5 @@
+//Botones + y - para agregar al carrito
+import React from "react";
 //Style
 import "./ItemCounter.css"
 
@@ -43,7 +45,7 @@ return (
             <button className="buttonStyle" style= {{width:"3vw"}} onClick={RestOneProduct}>-</button>
         </div>
             <p className="detalles">Stock disponible: {producto.stock} unidades</p>
-        <AddToCartButton item= {producto} stock={producto.stock} count={count} onAdd={onAdd} />
+        <AddToCartButton cantidadProductos={cantidadProductos} item= {producto} stock={producto.stock} count={count} onAdd={onAdd} />
     </>
 )
 }

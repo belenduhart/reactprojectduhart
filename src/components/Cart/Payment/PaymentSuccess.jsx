@@ -1,3 +1,4 @@
+//Popup pago satisfactorio
 import React from "react";
 
 const PaymentSuccess = (props) =>{

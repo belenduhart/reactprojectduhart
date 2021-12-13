@@ -1,3 +1,4 @@
+//Icono carrito
 //style
 import './CarritoWidget.css';
 

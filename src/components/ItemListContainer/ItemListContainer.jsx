@@ -1,3 +1,6 @@
+//Mostrar tarjetas de cada producto
+import React from "react";
+
 //Components
 import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer";
 import Loading from "../Loading/Loading";
@@ -40,7 +43,6 @@ return(
     <>
     {loading ? 
         <div>
-        <h4 style={{textAlign:"center"}}> Cargando Productos</h4>
         <Loading/>  
         </div>
         : 

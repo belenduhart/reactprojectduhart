@@ -1,0 +1,22 @@
+.loadingContainer{
+    width: 100vw;
+    height: 100vh;
+    background-color: lightblue;
+    opacity: 1;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left:0;
+    bottom:0;
+}
+
+.loadingContainer > div{
+    z-index:4;
+    text-align: center;
+    color: black;
+    font-size: 2em;
+}

@@ -1,5 +1,8 @@
+//Mostrar formulario
+import React from 'react';
 //Styles
 import '../Cart.css'
+
 //Components
 import { useCartContext} from '../../CartContext/CartContext';
 import Form from './Form';
@@ -15,6 +18,7 @@ import PaymentSuccess from './PaymentSuccess';
 const PaymentForm = () =>{
     const{ cartList }= useCartContext() 
     const { cartTotalAmount } = useCartContext()
+    const {emptyCart} = useCartContext()
     //Mostrar form
     const [enable, setEnable] = useState(true);
     //verificacion form
@@ -22,12 +26,14 @@ const PaymentForm = () =>{
     const [success, setSuccess] = useState(false)
     const [ordenId, setOrdenId] = useState()
 
+    //Datos que se envian a la DB
 const [formData, setFormData]= useState({
     name: '',
     email:'',
     phone:''
 })
 
+//Obtencion datos
 const handleOnChange = (e)=> {
     setFormData({
         ...formData,
@@ -35,6 +41,7 @@ const handleOnChange = (e)=> {
     })
 }
 
+//Creacion de la orden para la DB
 const handleOnSubmit = (e) => {
     e.preventDefault();
     const order = {
@@ -55,15 +62,20 @@ const handleOnSubmit = (e) => {
             .finally(()=> setEnable(!enable))
 }
 
+//Payment success => finalizar compra
 function finalizar () {
+    emptyCart();
+    setFormData({inatialState});
     window.location.replace('/');
-    setFormData({inatialState})
 }
+
+//Vaciar datos
 const inatialState = {
         name: '',
         email:'',
         phone:''
 }
+
     
 //VALIDACIONES FORMULARIO
 //EMAIL
@@ -90,7 +102,7 @@ function validarNumeros(evt){
         return false;      
     }
 }
- //CELULAR COMPLETO
+ //Celular completo
 let celular;
 function celularCompleto(){
     let numeroCelular = (document.querySelector("#celular").value)
@@ -102,7 +114,7 @@ function celularCompleto(){
     }
 }
 
-//FECHA VENCIMIENTO TARJETA
+//Fecha vencimiento tarjeta
 const [mostrarError, setMostrarError] = useState("");
 const date = new Date();
 const mes = date.getMonth() + 1;
@@ -128,7 +140,7 @@ function verificarVencimiento(){
     }
 }
 
-//VERIFICAR QUE PONGA ALGUN NOMBRE
+//Verificar que ponga algun nombre
 let nombre = false;
 function verificarNombre(){
     let nombres = document.querySelector("#card-holder").value;

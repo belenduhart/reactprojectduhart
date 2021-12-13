@@ -1,3 +1,6 @@
+//Botones para ir al carrito o seguir comprando
+import React from "react";
+
 //Styles
 import "./AddCartButton.css";
 

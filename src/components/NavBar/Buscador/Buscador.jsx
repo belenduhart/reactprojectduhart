@@ -1,6 +1,5 @@
 import { FormControl, Button } from "react-bootstrap";
 import "./Buscador.css"
-import { Link } from "react-router-dom";
 import { getFirestore } from "../../../services/getFireBase";
 import 'firebase/firestore';
 import { useState } from "react";
@@ -17,6 +16,7 @@ const [MostrarBusqueda, setMostrarBusqueda] = useState(false)
 
 
     async function  Buscar ()  {
+        console.log("hola")
         busqueda = document.querySelector(".Buscador").value;
         busqueda = busqueda.replace(/\b\w/g, l => l.toUpperCase())
         const db = getFirestore();
@@ -26,12 +26,14 @@ const [MostrarBusqueda, setMostrarBusqueda] = useState(false)
             
             if ((doc.data().name.includes(busqueda)) === true)
                         { 
-                            ItemBuscar.push(doc.data())
+                            ItemBuscar.push({id:doc.id,...doc.data()})
+                            console.log(ItemBuscar)
                             const dataArr = new Set(ItemBuscar)
                             let search = [...dataArr]
                             console.log(search)
                             setBuscado(search)
                             setMostrarBusqueda(true)
+                            
                         }
         }
         
@@ -49,7 +51,6 @@ const [MostrarBusqueda, setMostrarBusqueda] = useState(false)
     }
 
 
-    const [show, setShow] = useState(true);
         return (    
             <>
                 <FormControl
@@ -66,20 +67,18 @@ const [MostrarBusqueda, setMostrarBusqueda] = useState(false)
                     <div className="cerrarBusqueda" onClick={cerrarBusqueda}>X</div>
                     {Buscado.map(item => <><div className="card">
                         <div key={item.id} className="image">
-                            <img className="image" src={item.picture[0]}/>
+                            <img className="image" alt={item.id} src={item.picture[0]}/>
                         </div>
                         <div className="details">
                             <div className="center">
                             <h1>{item.name}</h1>
-                            {/* <ul>
+                            <ul>
                             <li> 
-                            <Link to={`/categoria/${item.categoria}`} >
-                                <button className="buttonDetail" type="button" onClick={() => {setShow(!show);}}>
-                                    {show ? 'Mostrar Detalles' : 'Yendo al Producto'}
+                                <button className="buttonDetail" type="button" onClick={() => {setMostrarBusqueda(!false);}}>
+                                   <a href={`/detalle/${item.id}`}>Ir al producto</a>
                                 </button>
-                                </Link>
                             </li>
-                            </ul> */}
+                            </ul>
                             </div>
                         </div>
                     </div>

@@ -1,12 +1,18 @@
+//Tarjeta de producto general
+import React from "react";
+
+//Components
 import ItemDetail from "./ItemDetail/ItemDetail";
+
+//Styles
 import "./ItemDetailContainer.css"
 
 const ItemDetailContainer = ({product})=>{
         return(
             product.map(product=>
-                <div className="card">
+                <div key={product.name} className="card">
                     <div className="image">
-                        <img className="image" src={product.picture[0]}/>
+                        <img className="image" alt={product.id} src={product.picture[0]}/>
                     </div>
                 <div className="details">
                 <div className="center">

@@ -1,3 +1,6 @@
+//Boton para ir al detalle del producto
+import React from "react";
+
 //Styles 
 import "./ItemDetail.css"
 

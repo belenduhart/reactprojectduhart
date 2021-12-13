@@ -1,3 +1,6 @@
+//Detalle especifico de cada producto
+import React from "react";
+
 //Styles
 import "./Item.css";
 
@@ -31,8 +34,6 @@ const Item = ()=>{
         <>
         {loading ?
                 <div sytle={{height:"100vh"}}>
-                <Loading/>
-                <h4> Cargando Productos</h4>
                 <Loading/>
                 </div>
         : 

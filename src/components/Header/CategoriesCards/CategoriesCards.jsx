@@ -1,5 +1,10 @@
+//Tarjetas categorias ropa inicio
 import React from "react";
+
+//Utilities
 import { Link } from 'react-router-dom';
+
+//Styles
 import '../Header.css';
 
 const CategoriesCards = () => {

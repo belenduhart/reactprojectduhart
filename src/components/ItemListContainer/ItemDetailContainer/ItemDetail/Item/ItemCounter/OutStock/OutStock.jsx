@@ -1,5 +1,10 @@
+//Producto fuera de stock
 import React from "react";
+
+//Utilities
 import { Link } from "react-router-dom";
+
+//Styles
 import '../ItemCounter.css';
 
 const OutStock = () =>{

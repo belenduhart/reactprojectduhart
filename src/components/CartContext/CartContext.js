@@ -1,6 +1,10 @@
+//Contexto cart
 import {React} from 'react';
+
+//Utilities
 import {useState, createContext, useContext} from 'react';
 
+//Components
 import firebase from 'firebase';
 import 'firebase/firestore';
 import { getFirestore } from '../../services/getFireBase';
