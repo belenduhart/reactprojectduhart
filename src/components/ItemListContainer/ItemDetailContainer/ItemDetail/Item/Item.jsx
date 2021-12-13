@@ -42,7 +42,7 @@ const Item = ()=>{
         <div id="carouselExampleControls" className="carousel slide carouitem"  data-bs-pause="hover" data-bs-interval="false">
                 <div id= "carouselProductos" className="carousel-inner">
                     {productoComprar.picture.map((pic,pos)=> <div  
-                    className={pos === 0 ? "carousel-item active" : "carousel-item"} data-bs-ride="">
+                    className={pos === 0 ? "carousel-item active" : "carousel-item"} data-bs-ride="" key={pos}>
                 <img src={pic} id="cardImage2" className="d-block" alt={pic} />
                 </div>)}
                 </div>

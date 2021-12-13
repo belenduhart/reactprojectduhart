@@ -1,6 +1,6 @@
 #footer{
     width: 100%;
-    background-color: rgb(111, 158, 173);
+    background-color: #3aa092;
     background-blend-mode: lighten from bottom to top;
     display: flex;
     flex-direction: column;

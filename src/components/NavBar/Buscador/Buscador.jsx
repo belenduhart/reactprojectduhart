@@ -1,21 +1,26 @@
+//Buscador
+import React from "react";
+
+//Components
 import { FormControl, Button } from "react-bootstrap";
-import "./Buscador.css"
 import { getFirestore } from "../../../services/getFireBase";
 import 'firebase/firestore';
+
+//Styles
+import "./Buscador.css"
+
+//Utilities
 import { useState } from "react";
 
 
 const Buscador =()=>{
-    //TODO COMPLETAR BUSQUEDA
 const [Buscado, setBuscado] = useState([])
 const [MostrarBusqueda, setMostrarBusqueda] = useState(false)
     //Buscador
     let ItemBuscar = [] ;
     let busqueda;
 
-
-
-    async function  Buscar ()  {
+async function  Buscar ()  {
         console.log("hola")
         busqueda = document.querySelector(".Buscador").value;
         busqueda = busqueda.replace(/\b\w/g, l => l.toUpperCase())
